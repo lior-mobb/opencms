@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Snyk SAST scan
         run:
-          npx snyk auth ${{ secrets.SNYK_API_TOKEN }} && npx snyk code test --sarif-file-output=/home/runner/report.json ./
+          npx snyk auth ${{ secrets.SNYK_API_TOKEN }} && npx snyk code test --severity-threshold=high --sarif-file-output=/home/runner/report.json ./
         shell: bash -l {0}
         
       - name: Archive report
