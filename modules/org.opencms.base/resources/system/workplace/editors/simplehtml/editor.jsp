@@ -192,7 +192,7 @@ function popupCloseAction(closeObj) {
 boolean elementSelection = options.showElement("option.element.selection", displayOptions);
 boolean elementLanguage = options.showElement("option.element.language", displayOptions);
 if (elementSelection || elementLanguage) {
-	out.println(wp.buttonBarLabel(org.opencms.workplace.editors.Messages.GUI_INPUT_ELEMENT_0));
+	out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.buttonBarLabel(org.opencms.workplace.editors.Messages.GUI_INPUT_ELEMENT_0))));
 	if (elementLanguage) {
 		out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape("<td>" + wp.buildSelectElementLanguage("name=\"" + CmsEditor.PARAM_ELEMENTLANGUAGE + "\" width=\"150\" onchange=\"buttonAction(3);\"") + "</td>")));
 		out.println(wp.buttonBarSpacer(2));
