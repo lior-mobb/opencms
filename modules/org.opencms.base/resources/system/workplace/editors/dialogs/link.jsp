@@ -267,7 +267,7 @@ function checkContext(linkUrl, add) {
 
 <table border="0" cellspacing="0" cellpadding="4" width="100%">
                 <tr>
-                    <td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTO_0) %>:</td>
+                    <td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTO_0))) %>:</td>
                     <td class="maxwidth">
                         <input type="text" name="neulink"  class="maxwidth" value="" onchange="checkLinkUrl();" />
                     </td>
