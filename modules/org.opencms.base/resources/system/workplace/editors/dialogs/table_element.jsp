@@ -276,4 +276,4 @@ setTimeout("resizeWindow()", 100);
 //-->
 </script>
 <%= wp.bodyEnd() %>
-<%= wp.htmlEnd() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlEnd())) %>
