@@ -245,13 +245,13 @@ A_CmsAjaxGallery wp = new CmsAjaxImageGallery(pageContext, request, response);
 </div>
 
 <div class="selection">
-	<div class="width"><%= wp.key(Messages.GUI_IMAGEGALLERY_CROP_WIDTH_0) %> <span id="w"></span></div>
+	<div class="width"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(Messages.GUI_IMAGEGALLERY_CROP_WIDTH_0))) %> <span id="w"></span></div>
 	<div class="height"><%= wp.key(Messages.GUI_IMAGEGALLERY_CROP_HEIGHT_0) %> <span id="h"></span></div>
-	<div class="ratio"><%= wp.key(Messages.GUI_IMAGEGALLERY_CROP_RATIO_0) %> <span id="r"></span></div>
+	<div class="ratio"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(Messages.GUI_IMAGEGALLERY_CROP_RATIO_0))) %> <span id="r"></span></div>
 </div>
 
 <div class="buttons">
-	<button onclick="okPressed();"><%= wp.key(Messages.GUI_GALLERY_BUTTON_OK_0) %></button>
+	<button onclick="okPressed();"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(Messages.GUI_GALLERY_BUTTON_OK_0))) %></button>
 	<button onclick="parent.tb_remove();"><%= wp.key(Messages.GUI_GALLERY_BUTTON_CANCEL_0) %></button>
 </div>
 

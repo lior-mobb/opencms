@@ -32,6 +32,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
+import org.springframework.web.util.HtmlUtils;
 
 /**
  * Helper class for managing two lists on the same dialog.<p>
@@ -146,7 +147,7 @@ public class CmsTwoListsDialog {
         }
 
         JspWriter out = m_activeWp.getJsp().getJspContext().getOut();
-        out.print(defaultActionHtml());
+        out.print(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(defaultActionHtml())));
     }
 
     /**

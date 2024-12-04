@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.CmsDialog, 
                  org.opencms.workplace.commons.CmsDeletedResources,
                  org.opencms.workplace.commons.Messages,
@@ -36,7 +37,7 @@ default:
 <form name="<%= CmsDeletedResourcesList.LIST_ID %>-form" action="<%= wp.getDialogUri() %>" method="post" class="nomargin" onsubmit="return submitAction('<%= CmsDialog.DIALOG_OK %>', null, '<%= CmsDeletedResourcesList.LIST_ID %>-form');">
 <%= wp.paramsAsHidden() %>
 <input type="hidden" name="<%= CmsDialog.PARAM_FRAMENAME %>" value="">
-<%= wp.buildAjaxResultContainer(wp.key(Messages.GUI_DELETED_RESOURCES_LIST_TITLE_0)) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.buildAjaxResultContainer(wp.key(Messages.GUI_DELETED_RESOURCES_LIST_TITLE_0)))) %>
 <%= wp.buildOptions() %>
 <%= wp.dialogContentEnd() %>
 <%= wp.dialogButtons() %>
