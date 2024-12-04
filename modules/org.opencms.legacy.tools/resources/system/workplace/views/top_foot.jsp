@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.workplace.*,
 	org.opencms.jsp.*,
@@ -15,12 +16,12 @@
 <html>
 <head>
 <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=<%= wp.getEncoding() %>">
-<link rel="stylesheet" type="text/css" href="<%= CmsWorkplace.getStyleUri(wp.getJsp(), "workplace.css")%>">
+<link rel="stylesheet" type="text/css" href="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(CmsWorkplace.getStyleUri(wp.getJsp(), "workplace.css")))%>">
 <title>OpenCms Workplace Foot Frame</title>
 <script > 
 function doReloadFoot() {
    <%if (OpenCms.getWorkplaceManager().isKeepAlive()) {%>
-	document.location.href="<%= cms.link("top_foot.jsp?wpFrame=foot") %>";
+	document.location.href="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(cms.link("top_foot.jsp?wpFrame=foot"))) %>";
    <%}%>
 }
 </script>
@@ -45,7 +46,7 @@ Long attrTimeWarp = (Long)session.getAttribute(CmsContextInfo.ATTRIBUTE_REQUEST_
 if (attrTimeWarp != null) { %>
 <td>
 	<div class="timewarp">
-		<%= wp.key(org.opencms.workplace.commons.Messages.GUI_LABEL_TIMEWARP_0) %>: <%= CmsDateUtil.getDateTime(new Date(attrTimeWarp.longValue()), DateFormat.SHORT, cms.getRequestContext().getLocale()) %>
+		<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.commons.Messages.GUI_LABEL_TIMEWARP_0))) %>: <%= CmsDateUtil.getDateTime(new Date(attrTimeWarp.longValue()), DateFormat.SHORT, cms.getRequestContext().getLocale()) %>
 	</div>
 </td><%
 } %>
