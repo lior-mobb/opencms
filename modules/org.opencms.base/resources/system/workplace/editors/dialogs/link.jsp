@@ -260,7 +260,7 @@ function checkContext(linkUrl, add) {
 <%= wp.bodyStart("dialog", " onLoad=\"init();\" onunload=\"closeTreeWin();\"") %>
 
 <%= wp.dialogStart() %>
-<%= wp.dialogContentStart(wp.key(org.opencms.workplace.editors.Messages.GUI_TITLE_NEWLINK_0)  ) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogContentStart(wp.key(org.opencms.workplace.editors.Messages.GUI_TITLE_NEWLINK_0)  ))) %>
 
 <form name="NEU" class="nomargin" onsubmit="pasteLink();">
 
