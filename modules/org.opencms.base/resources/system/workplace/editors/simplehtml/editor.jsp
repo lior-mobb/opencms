@@ -219,7 +219,7 @@ if (options.showElement("option.properties", displayOptions)) {
 }
 %>		
 <td class="maxwidth">&nbsp;</td>
-<%= wp.button("javascript:buttonAction(2);", null, "preview.png", org.opencms.workplace.editors.Messages.GUI_BUTTON_PREVIEW_0, buttonStyle) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:buttonAction(2);", null, "preview.png", org.opencms.workplace.editors.Messages.GUI_BUTTON_PREVIEW_0, buttonStyle))) %>
 <%= wp.buttonBarSpacer(5) %>
 <%= wp.buttonBar(CmsWorkplace.HTML_END) %>
 <%= wp.buttonBarHorizontalLine() %>
