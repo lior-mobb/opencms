@@ -167,7 +167,7 @@ function checkLinkUrl() {
 		}
 	}
 	if (checkUrl(url.value)) {
-		var conf = confirm("<%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_CONFIRMHTTP_0)%>");
+		var conf = confirm("<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_CONFIRMHTTP_0)))%>");
 	    	if (conf) {
 	        	url.value = "http://" + url.value;
 	    	}
