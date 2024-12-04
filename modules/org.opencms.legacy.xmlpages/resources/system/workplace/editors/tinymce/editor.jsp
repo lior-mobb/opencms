@@ -973,7 +973,7 @@ document.write ('<textarea id="tinymce_content" name="tinymce_content" style="he
 <input type="hidden" name="ispopup" value="true">
 </form>
 
-<form style="display: none;" name="PROPERTIES" action="<%= cms.link("/system/workplace/commons/property.jsp") %>" target="DIALOGPROPERTY" method="post">
+<form style="display: none;" name="PROPERTIES" action="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(cms.link("/system/workplace/commons/property.jsp"))) %>" target="DIALOGPROPERTY" method="post">
 <input type="hidden" name="<%= CmsDialog.PARAM_RESOURCE %>" value="<%= wp.getParamTempfile() %>">
 <input type="hidden" name="usetempfileproject" value="true">
 <input type="hidden" name="<%= CmsDialog.PARAM_ISPOPUP %>" value="true">
