@@ -95,7 +95,7 @@ function registerElement(elemName, isEnabled) {
 
 <p><%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_COPYLANGUAGE_HEADLINE_1, new Object[]{wp.getElementLocale().getDisplayName(wp.getLocale())})%></p>
 <%= wp.buildLanguageList() %>
-<p><%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_COPYLANGUAGE_WARNING_0) %></p>
+<p><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_COPYLANGUAGE_WARNING_0))) %></p>
 <%= wp.dialogContentEnd() %>
 <%= wp.dialogButtonsOkCancel(null, " onclick=\"window.close()\"") %>
 

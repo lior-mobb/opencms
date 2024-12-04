@@ -511,7 +511,7 @@ default:
 <meta http-equiv="content-type" content="text/html; charset=<%= wp.getEncoding() %>">
 <title>(<%= wp.getSettings().getUser().getName() %>) - <%= wp.getParamResource() %></title>
 
-<link rel="stylesheet" type="text/css" href="<%= wp.getStyleUri("workplace.css") %>">
+<link rel="stylesheet" type="text/css" href="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getStyleUri("workplace.css"))) %>">
 <link rel="stylesheet" type="text/css" href="<%= cms.link("/system/workplace/editors/tinymce/tinymce_xmlpage.css") %>">
 <script  src="<%= CmsWorkplace.getStaticResourceUri("editors/tinymce/jscripts/tinymce/tinymce.min.js") %>"></script>
 <script  src="<%= CmsWorkplace.getSkinUri() + "jquery/packed/" %>jquery.js"></script>
@@ -539,7 +539,7 @@ function saveContent() {
 
 // Ask user whether he really wants to delete the locale
 function confirmDeleteLocale() {
-	if (confirm("<%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_DELETELOCALE_0) %>")) {
+	if (confirm("<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_DELETELOCALE_0))) %>")) {
 		buttonAction(14);
 	}
 }
@@ -720,7 +720,7 @@ tinyMCE.init({
     paste_as_text: <%=""+Boolean.valueOf(OpenCms.getWorkplaceManager().getWorkplaceEditorManager().getEditorConfiguration("tinymce").getParameters().get("paste_text"))%>,
     cmsGalleryEnhancedOptions : <%= options.showElement("gallery.enhancedoptions", displayOptions)%>,
     cmsGalleryUseThickbox : <%= options.showElement("gallery.usethickbox", displayOptions)%>,
-    language : "<%= wp.getLocale().getLanguage() %>",
+    language : "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getLocale().getLanguage())) %>",
 	relative_urls: false,
     remove_script_host: false,
 
@@ -900,7 +900,7 @@ function getEditorHeight(){
 <input type="hidden" name="<%= CmsEditor.PARAM_EDITASTEXT %>" value="<%= wp.getParamEditastext() %>">
 <input type="hidden" name="<%= CmsEditor.PARAM_DIRECTEDIT %>" value="<%= wp.getParamDirectedit() %>">
 <input type="hidden" name="<%= CmsDefaultPageEditor.PARAM_OLDELEMENTNAME %>" value="<%= wp.getParamElementname() %>">
-<input type="hidden" name="<%= CmsEditor.PARAM_OLDELEMENTLANGUAGE %>" value="<%= wp.getParamElementlanguage() %>">
+<input type="hidden" name="<%= CmsEditor.PARAM_OLDELEMENTLANGUAGE %>" value="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getParamElementlanguage())) %>">
 <input type="hidden" name="<%= CmsEditor.PARAM_BACKLINK %>" value="<%= wp.getParamBacklink() %>">
 <input type="hidden" name="<%= CmsEditor.PARAM_MODIFIED %>" value="<%= wp.getParamModified() %>">
 <input type="hidden" name="content" id="content" >
@@ -964,7 +964,7 @@ document.write ('<textarea id="tinymce_content" name="tinymce_content" style="he
 
 </form>
 
-<form style="display: none;" name="ELEMENTS" action="<%= cms.link("/system/workplace/editors/dialogs/elements.jsp") %>" target="DIALOGELEMENT" method="post">
+<form style="display: none;" name="ELEMENTS" action="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(cms.link("/system/workplace/editors/dialogs/elements.jsp"))) %>" target="DIALOGELEMENT" method="post">
 <input type="hidden" name="<%= CmsEditor.PARAM_TEMPFILE %>" value="<%= wp.getParamTempfile() %>">
 <input type="hidden" name="<%= CmsEditor.PARAM_ELEMENTLANGUAGE %>" value="<%= wp.getParamElementlanguage() %>">
 <input type="hidden" name="<%= CmsDefaultPageEditor.PARAM_ELEMENTNAME %>" value="<%= wp.getParamElementname() %>">

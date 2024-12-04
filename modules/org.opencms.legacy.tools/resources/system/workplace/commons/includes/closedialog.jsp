@@ -31,4 +31,4 @@ if (isWp) {
 </script>
 <body>
 </body>
-<%= wp.htmlEnd() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlEnd())) %>

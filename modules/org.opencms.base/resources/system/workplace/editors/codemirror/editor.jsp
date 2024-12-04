@@ -191,7 +191,7 @@ if (modeName.equals("text/html")) {
 	function confirmExit() {
 		if (contentDirty) {
 			// only ask if the content has been modified
-			if (confirm ("<%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_EXIT_0)%>")) {
+			if (confirm ("<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_EXIT_0)))%>")) {
 				setContentDirty(false);
 				buttonAction(1);
 			}
@@ -252,18 +252,18 @@ if (modeName.equals("text/html")) {
 
 <%= wp.buttonBar(CmsWorkplace.HTML_START) %>
 <%= wp.buttonBarStartTab(0, 5) %>
-<%= wp.button("javascript:buttonAction(2);", null, "save_exit", org.opencms.workplace.editors.Messages.GUI_BUTTON_SAVECLOSE_0, buttonStyle) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:buttonAction(2);", null, "save_exit", org.opencms.workplace.editors.Messages.GUI_BUTTON_SAVECLOSE_0, buttonStyle))) %>
 <%= wp.button("javascript:buttonAction(3);", null, "save", org.opencms.workplace.editors.Messages.GUI_BUTTON_SAVE_0, buttonStyle) %>
 <%= wp.buttonBarSeparator(5, 5) %>
 <%= wp.button("javascript:CodeMirror.commands['find'](editorCodeMirror);", null, "search", org.opencms.workplace.editors.Messages.GUI_BUTTON_SEARCH_0, buttonStyle) %>
-<%= wp.button("javascript:CodeMirror.commands['replace'](editorCodeMirror);", null, "editorsearch", org.opencms.workplace.editors.Messages.GUI_BUTTON_REPLACE_0, buttonStyle) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:CodeMirror.commands['replace'](editorCodeMirror);", null, "editorsearch", org.opencms.workplace.editors.Messages.GUI_BUTTON_REPLACE_0, buttonStyle))) %>
 <%= wp.buttonBarSeparator(5, 5) %>
-<%= wp.button("javascript:buttonAction(4);", null, "undo", org.opencms.workplace.editors.Messages.GUI_BUTTON_UNDO_0, buttonStyle) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:buttonAction(4);", null, "undo", org.opencms.workplace.editors.Messages.GUI_BUTTON_UNDO_0, buttonStyle))) %>
 <%= wp.button("javascript:buttonAction(5);", null, "redo", org.opencms.workplace.editors.Messages.GUI_BUTTON_REDO_0, buttonStyle) %>
 <%= wp.buttonBarSeparator(5, 5) %>
 <td>
 	<select name="fontsize" onchange="setEditorFontSize(this.value);" title="<%= wp.key("GUI_EDITOR_SELECT_FONTSIZE_0") %>">
-		<option value="-">--<%= wp.key("GUI_EDITOR_SELECT_FONTSIZE_0") %>--</option>
+		<option value="-">--<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key("GUI_EDITOR_SELECT_FONTSIZE_0"))) %>--</option>
 		<option value="10">10px</option>
 		<option value="11">11px</option>
 		<option value="12">12px</option>
@@ -277,7 +277,7 @@ if (modeName.equals("text/html")) {
 <%= wp.buttonBarSeparator(5, 5) %>
 <td>
 	<select name="fontsize" onchange="setEditorSyntax(this.value);" title="<%= wp.key("GUI_EDITOR_SELECT_SYNTAX_0") %>">
-		<option value="-">--<%= wp.key("GUI_EDITOR_SELECT_SYNTAX_0") %>--</option>
+		<option value="-">--<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key("GUI_EDITOR_SELECT_SYNTAX_0"))) %>--</option>
 		<option value="css"<% if (modeName.equals("css")) {%> selected="selected"<%}%>>CSS</option>
 		<option value="text/html"<% if (modeName.equals("text/html")) {%> selected="selected"<%}%>>HTML</option>
 		<option value="javascript"<% if (modeName.equals("javascript")) {%> selected="selected"<%}%>>Javascript</option>
@@ -287,14 +287,14 @@ if (modeName.equals("text/html")) {
 </td>
 <%= wp.buttonBarSeparator(5, 5) %>
 <td style="vertical-align: top;">
-	<a href="#" onclick="javascript:buttonAction(6);" class="button" title="<%= wp.key("GUI_EDITOR_BUTTON_SYNTAXHIGHLIGHT_0") %>">
+	<a href="#" onclick="javascript:buttonAction(6);" class="button" title="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key("GUI_EDITOR_BUTTON_SYNTAXHIGHLIGHT_0"))) %>">
 		<span unselectable="on" class="push" onmouseover="className='over'" onmouseout="className=modeClass" onmousedown="className='push'" onmouseup="className='over'">
 			<img class="button" src="<%= wp.getEditorResourceUri() %>images/highlight.gif" alt="<%= wp.key("GUI_EDITOR_BUTTON_SYNTAXHIGHLIGHT_0") %>"/>
 		</span>
 	</a>
 </td>
 <td style="vertical-align: top;">
-	<a href="#" onclick="javascript:buttonAction(7);" class="button" title="<%= wp.key("GUI_EDITOR_BUTTON_VISIBLETABS_0") %>">
+	<a href="#" onclick="javascript:buttonAction(7);" class="button" title="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key("GUI_EDITOR_BUTTON_VISIBLETABS_0"))) %>">
 		<span unselectable="on" class="norm" onmouseover="className='over'" onmouseout="className=tabsClass" onmousedown="className='push'" onmouseup="className='over'">
 			<img class="button" src="<%= wp.getEditorResourceUri() %>images/visibletabs.png" alt="<%= wp.key("GUI_EDITOR_BUTTON_VISIBLETABS_0") %>"/>
 		</span>
@@ -302,20 +302,20 @@ if (modeName.equals("text/html")) {
 </td>
 <%-- (deactivated, does not work properly!) = wp.button("javascript:autoFormatSelection();", null, "../editors/codemirror/images/autoformat.png", "GUI_EDITOR_BUTTON_AUTOFORMAT_0", buttonStyle) --%>
 <td style="vertical-align: top;">
-	<a href="#" onclick="javascript:editorCodeMirror.setOption('autoCloseBrackets', !editorCodeMirror.getOption('autoCloseBrackets'));editorCodeMirror.setOption('autoCloseTags', !editorCodeMirror.getOption('autoCloseTags'));if (closeClass == 'push') { closeClass = 'norm'; } else { closeClass = 'push'; }" class="button" title="<%= wp.key("GUI_EDITOR_BUTTON_AUTOCLOSE_0") %>">
+	<a href="#" onclick="javascript:editorCodeMirror.setOption('autoCloseBrackets', !editorCodeMirror.getOption('autoCloseBrackets'));editorCodeMirror.setOption('autoCloseTags', !editorCodeMirror.getOption('autoCloseTags'));if (closeClass == 'push') { closeClass = 'norm'; } else { closeClass = 'push'; }" class="button" title="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key("GUI_EDITOR_BUTTON_AUTOCLOSE_0"))) %>">
 		<span unselectable="on" class="push" onmouseover="className='over'" onmouseout="className=closeClass" onmousedown="className='push'" onmouseup="className='over'">
 			<img class="button" src="<%= wp.getEditorResourceUri() %>images/autoclose.png" alt="<%= wp.key("GUI_EDITOR_BUTTON_AUTOCLOSE_0") %>"/>
 		</span>
 	</a>
 </td>
-<%= wp.button("javascript:editorCodeMirror.setOption('lineWrapping', !editorCodeMirror.getOption('lineWrapping'));", null, wp.getEditorResourceUri() +"images/word_wrap.gif", "GUI_EDITOR_BUTTON_WORDWRAP_0", buttonStyle, "") %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:editorCodeMirror.setOption('lineWrapping', !editorCodeMirror.getOption('lineWrapping'));", null, wp.getEditorResourceUri() +"images/word_wrap.gif", "GUI_EDITOR_BUTTON_WORDWRAP_0", buttonStyle, ""))) %>
 <%
 if (wp.isHelpEnabled()) {%>
 	<%= wp.buttonBarSeparator(5, 5) %>
-	<%= wp.button("javascript:openOnlineHelp('/editors');", null, "help.png", org.opencms.workplace.editors.Messages.GUI_BUTTON_HELP_0, buttonStyle) %><%
+	<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:openOnlineHelp('/editors');", null, "help.png", org.opencms.workplace.editors.Messages.GUI_BUTTON_HELP_0, buttonStyle))) %><%
 } %>
 <td class="maxwidth">&nbsp;</td>
-<%= wp.button("javascript:confirmExit();", null, "exit", org.opencms.workplace.editors.Messages.GUI_BUTTON_CLOSE_0, buttonStyle) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:confirmExit();", null, "exit", org.opencms.workplace.editors.Messages.GUI_BUTTON_CLOSE_0, buttonStyle))) %>
 <%= wp.buttonBarSpacer(5) %>
 <%= wp.buttonBar(CmsWorkplace.HTML_END) %> 
 
