@@ -97,7 +97,7 @@ function init() {
 	}
 	
 	document.forms["NEU"].elements["targetname"].value = "";
-	var anchorTarget = "<%= CmsStringUtil.escapeJavaScript(request.getParameter("target")) %>";
+	var anchorTarget = "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(CmsStringUtil.escapeJavaScript(request.getParameter("target")))) %>";
 	if (anchorTarget != "null") {
 		if ((anchorTarget == "_self") || (anchorTarget == "") || (anchorTarget == null)) {
     	    document.forms["NEU"].elements["linktarget"].selectedIndex = 0;
