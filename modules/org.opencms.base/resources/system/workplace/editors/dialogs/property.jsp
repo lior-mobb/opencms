@@ -63,7 +63,7 @@ default:
 
 	wp.setParamAction(CmsPropertyAdvanced.DIALOG_SAVE_EDIT);
 	
-%><%= wp.htmlStart(null, wp.getParamTitle()) %>
+%><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlStart(null, wp.getParamTitle()))) %>
 <script >
 <!--
 
