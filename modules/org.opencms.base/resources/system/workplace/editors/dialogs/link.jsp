@@ -75,7 +75,7 @@ function init() {
 	if (window.opener.linkEditorPrefix != null) {
     	linkEditorPrefix = window.opener.linkEditorPrefix;
 	}
-	var anchor = "<%= CmsStringUtil.escapeJavaScript(request.getParameter("href")) %>";
+	var anchor = "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(CmsStringUtil.escapeJavaScript(request.getParameter("href")))) %>";
 	if (anchor != "null") {
 		document.forms["NEU"].elements["neulink"].value = checkContext(decodeURIComponent(anchor), false);
 	}
