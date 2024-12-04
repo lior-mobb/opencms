@@ -45,7 +45,7 @@ int buttonStyle = wp.getSettings().getUserSettings().getEditorButtonStyle();
 <%= wp.buttonBar(CmsWorkplace.HTML_START) %>
 <%= wp.buttonBarStartTab(0, 5) %>
 <td class="maxwidth">&nbsp;</td>
-<%= wp.button("javascript:confirmExit();", null, "exit", "button.close", buttonStyle) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:confirmExit();", null, "exit", "button.close", buttonStyle))) %>
 <%= wp.buttonBarSpacer(5) %>
 <%= wp.buttonBar(CmsWorkplace.HTML_END) %>
 
