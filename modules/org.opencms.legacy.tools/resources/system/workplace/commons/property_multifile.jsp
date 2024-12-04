@@ -58,7 +58,7 @@ case CmsDialog.ACTION_LOCKS_CONFIRMED:
 
 <%= wp.dialogEnd() %>
 <%= wp.bodyEnd() %>
-<%= wp.htmlEnd() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlEnd())) %>
 <% 
    break;
 
