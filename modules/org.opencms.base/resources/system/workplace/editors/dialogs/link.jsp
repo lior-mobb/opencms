@@ -285,7 +285,7 @@ function checkContext(linkUrl, add) {
                 // -->
                 </script>
                 <tr>
-                    <td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGET_0) %>:</td>
+                    <td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGET_0))) %>:</td>
                     <td class="maxwidth" style="white-space: nowrap;">
                       <select name="linktarget" id="linktarget" size="1" style="width:150px" onchange="setNameTarget(false);">
                         <option value="_self"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETSELF_0)))%></option>
