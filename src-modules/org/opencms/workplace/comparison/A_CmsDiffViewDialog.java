@@ -100,7 +100,7 @@ public abstract class A_CmsDiffViewDialog extends CmsDialog {
                 getLocale());
             String diff = Diff.diffAsHtml(getOriginalSource(), getCopySource(), conf);
             if (CmsStringUtil.isNotEmpty(diff)) {
-                out.println(diff);
+                out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(diff)));
             } else {
                 // print original source, if there are no differences
                 out.println(
