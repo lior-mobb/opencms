@@ -45,7 +45,7 @@ String uploadVariant = wp.getSettings().getUserSettings().getUploadVariant().toS
 
 <script >
 
-var vfsPathAjaxJsp = "<%= wp.getJsp().link("/system/workplace/galleries/imagegallery/ajaxcalls.jsp") %>";
+var vfsPathAjaxJsp = "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getJsp().link("/system/workplace/galleries/imagegallery/ajaxcalls.jsp"))) %>";
 var vfsPathPrefixItems = "<%= org.opencms.workplace.CmsWorkplace.getSkinUri() %>components/galleries/img/";
 var vfsPathButtons = "<%= org.opencms.workplace.CmsWorkplace.getSkinUri() %>buttons/";
 var initValues;
