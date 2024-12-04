@@ -14,7 +14,7 @@
 		disabled = " disabled=\"disabled\" style=\"background-color: /*begin-color Menu*/#f0f0f0/*end-color*/;\"";
 	} 
 	
-%><%= wp.htmlStart(null, dialogTitle) %>
+%><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlStart(null, dialogTitle))) %>
 
 <script >
 
