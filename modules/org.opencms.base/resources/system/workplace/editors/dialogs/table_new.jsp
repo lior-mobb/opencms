@@ -209,15 +209,15 @@ function resizeWindow() {
 <%= wp.bodyStart("dialog", "onload=\"init();\"") %>
 
 <%= wp.dialogStart() %>
-<%= wp.dialogContentStart(dialogTitle) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogContentStart(dialogTitle))) %>
 <form name="main" class="nomargin" onsubmit="checkValues(); return false;">
 
 <table border="0" cellpadding="3" cellspacing="0" width="100%">
 <tr>
-	<td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ROWS_0) %>:</td>
+	<td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ROWS_0))) %>:</td>
 	<td><input id="NumRows" type="text" size="15" style="width: 140px;" name="NumRows" onkeypress="event.returnValue=IsDigit();"<%= disabled %>></td>
 	<td class="maxwidth">&nbsp;</td>
-	<td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_WIDTH_0)%>:</td>
+	<td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_WIDTH_0)))%>:</td>
 	<td><select name="TableWidthMode" id="TableWidthMode" size="1" style="width: 150px;" onchange="checkField('TableWidthMode', 'TableWidth');"<%= disabled %>>
   			<option value="" selected="selected"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_TABLE_NOTSPECIFIED_0)%></option>
       		<option value="%"> <%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_INPERCENT_0) %>
@@ -248,29 +248,29 @@ function resizeWindow() {
 	<td><select id="TableAlignment" name="TableAlignment" size="1" style="width: 140px;"<%= disabled %>>
 			<option value="" selected="selected"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_TABLE_NOTSPECIFIED_0) %></option>
       		<option value="left"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNLEFT_0)%></option>
-      		<option value="center"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNCENTER_0) %></option>
+      		<option value="center"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNCENTER_0))) %></option>
       		<option value="right"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNRIGHT_0)%></option>
       	</select> 
     </td>
     <td class="maxwidth">&nbsp;</td>
-	<td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_PADDING_0) %>: </td>
+	<td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_PADDING_0))) %>: </td>
   	<td style="white-space: nowrap;" colspan="2"><input id="CellPadding" type="text" size="5" name="CellPadding" onkeypress="event.returnValue=IsDigit();">
-  	<%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_PADDINGINFO_0)%></td>
+  	<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_PADDINGINFO_0)))%></td>
 </tr>
 <tr>
 	<td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_BORDER_0) %>:</td>
 	<td><input id="BorderLineWitdh" type="text" size="15" style="width: 140px;" name="BorderLineWidth" onkeypress="event.returnValue=IsDigit();"></td>
     <td class="maxwidth">&nbsp;</td>
-	<td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_SPACING_0) %>: </td>
+	<td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_SPACING_0))) %>: </td>
   	<td style="white-space: nowrap;" colspan="2"><input id="CellSpacing" type="text" size="5" name="CellSpacing" onkeypress="event.returnValue=IsDigit();">
-  	<%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_SPACINGINFO_0) %></td>
+  	<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_SPACINGINFO_0))) %></td>
 </tr>
 <tr>
-	<td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_COLOR_0) %></td>
+	<td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_COLOR_0))) %></td>
 	<td><input type="text" id="TableColor" name="TableColor" size="15" style="width: 140px;" maxlength="7" onkeyup="previewColor('TableColor', 'TableColor');"></td>
 	<td colspan="4"><table border="0" cellpadding="0" cellspacing="0">
 						<tr>
-							<%= wp.button("javascript:openColorWindow();", null, "color_fill", org.opencms.workplace.editors.Messages.GUI_BUTTON_COLOR_0 , buttonStyle) %>
+							<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:openColorWindow();", null, "color_fill", org.opencms.workplace.editors.Messages.GUI_BUTTON_COLOR_0 , buttonStyle))) %>
 						</tr>
 					</table>
 	</td>
@@ -287,4 +287,4 @@ setTimeout("resizeWindow()", 100);
 //-->
 </script>
 <%= wp.bodyEnd() %>
-<%= wp.htmlEnd() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlEnd())) %>

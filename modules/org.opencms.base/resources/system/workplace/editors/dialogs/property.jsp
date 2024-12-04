@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.workplace.*,
 	org.opencms.workplace.editors.*,
@@ -62,7 +63,7 @@ default:
 
 	wp.setParamAction(CmsPropertyAdvanced.DIALOG_SAVE_EDIT);
 	
-%><%= wp.htmlStart(null, wp.getParamTitle()) %>
+%><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlStart(null, wp.getParamTitle()))) %>
 <script >
 <!--
 
@@ -203,7 +204,7 @@ function doSet() {
 
 <%= wp.dialogContentEnd() %>
 
-<%= wp.dialogButtonsOkCancelAdvanced(null, null, "value=\""+wp.key("button.advanced")+"\" onclick=\"submitAdvanced();\"") %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogButtonsOkCancelAdvanced(null, null, "value=\""+wp.key("button.advanced")+"\" onclick=\"submitAdvanced();\""))) %>
 </form>
 
 <%= wp.dialogEnd() %>
@@ -221,7 +222,7 @@ if (Boolean.valueOf(wp.getParamIsPopup()).booleanValue()) {
 </script>
 
 <%= wp.bodyEnd() %>
-<%= wp.htmlEnd() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlEnd())) %>
 <%
 } 
 //////////////////// end of switch statement 

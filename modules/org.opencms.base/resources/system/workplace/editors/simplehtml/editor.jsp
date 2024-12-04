@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.workplace.*,
 	org.opencms.workplace.editors.*,
@@ -66,7 +67,7 @@ default:
 <meta http-equiv="content-type" content="text/html; charset=<%= wp.getEncoding() %>">
 <title>(<%= wp.getSettings().getUser().getName() %>) - <%= wp.getParamResource() %></title>
 
-<link rel=stylesheet type="text/css" href="<%= wp.getStyleUri("workplace.css") %>">
+<link rel=stylesheet type="text/css" href="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getStyleUri("workplace.css"))) %>">
 
 <script  src="<%= wp.getEditorResourceUri() %>edit.js"></script> 
 	
@@ -208,7 +209,7 @@ if (elementSelection || elementLanguage) {
 	}
 } else {
 	// build hidden input fields that editor works correctly
-	%><input type="hidden" name="<%= CmsEditor.PARAM_ELEMENTLANGUAGE %>" value="<%= wp.getParamElementlanguage() %>"><input type="hidden" name="<%= CmsDefaultPageEditor.PARAM_ELEMENTNAME %>" value="<%= wp.getParamElementname() %>"><%
+	%><input type="hidden" name="<%= CmsEditor.PARAM_ELEMENTLANGUAGE %>" value="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getParamElementlanguage())) %>"><input type="hidden" name="<%= CmsDefaultPageEditor.PARAM_ELEMENTNAME %>" value="<%= wp.getParamElementname() %>"><%
 }
 if (options.showElement("option.properties", displayOptions)) {
 	if (elementLanguage && !elementSelection) {
@@ -218,7 +219,7 @@ if (options.showElement("option.properties", displayOptions)) {
 }
 %>		
 <td class="maxwidth">&nbsp;</td>
-<%= wp.button("javascript:buttonAction(2);", null, "preview.png", org.opencms.workplace.editors.Messages.GUI_BUTTON_PREVIEW_0, buttonStyle) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:buttonAction(2);", null, "preview.png", org.opencms.workplace.editors.Messages.GUI_BUTTON_PREVIEW_0, buttonStyle))) %>
 <%= wp.buttonBarSpacer(5) %>
 <%= wp.buttonBar(CmsWorkplace.HTML_END) %>
 <%= wp.buttonBarHorizontalLine() %>
@@ -230,7 +231,7 @@ if (options.showElement("button.customized", displayOptions)) {%>
 	<td><%= wp.buttonActionDirectEdit("buttonAction(9);", buttonStyle) %></td><%
 }
 %>
-<%= wp.button("javascript:buttonAction(7);", null, "save_exit", org.opencms.workplace.editors.Messages.GUI_BUTTON_SAVECLOSE_0, buttonStyle) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:buttonAction(7);", null, "save_exit", org.opencms.workplace.editors.Messages.GUI_BUTTON_SAVECLOSE_0, buttonStyle))) %>
 <%= wp.button("javascript:buttonAction(8);", null, "save",org.opencms.workplace.editors.Messages.GUI_BUTTON_SAVE_0, buttonStyle) %>
 <%
 if (wp.isHelpEnabled()) {%>

@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.util.*,
 	org.opencms.workplace.*,
@@ -22,7 +23,7 @@ case CmsDialogElements.ACTION_UPDATE_ELEMENTS:
 	<script>
 		function closeAction() {
 			this.elemName = "<%= wp.getChangeElement() %>";
-			this.elemLocale = "<%= wp.getElementLocale() %>";
+			this.elemLocale = "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getElementLocale())) %>";
 		}
 		var closeObj = new closeAction();
 		if (window.opener.popupCloseAction) {
@@ -42,7 +43,7 @@ default:
 
 	wp.setParamAction(CmsDialogElements.DIALOG_UPDATE_ELEMENTS);
 
-%><%= wp.htmlStart(null, wp.getParamTitle()) %>
+%><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlStart(null, wp.getParamTitle()))) %>
 <script>
 <!--
 
@@ -55,7 +56,7 @@ function confirmDelete() {
 		}
 	}
 	if (isDeleted) {
-		var confirmText = "<%= CmsStringUtil.escapeJavaScript(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_ELEMENTS_CONFIRMDISABLE_0)) %>";
+		var confirmText = "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(CmsStringUtil.escapeJavaScript(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_ELEMENTS_CONFIRMDISABLE_0)))) %>";
 		if (confirm(confirmText)) {	
 			document.main.submit();
 		}
@@ -120,7 +121,7 @@ resizeWindow();
 <%
 } 
 %>
-<%= wp.htmlEnd() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlEnd())) %>
 <%
 } 
 //////////////////// end of switch statement 
