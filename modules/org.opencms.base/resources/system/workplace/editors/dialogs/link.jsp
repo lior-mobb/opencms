@@ -161,7 +161,7 @@ function checkLinkUrl() {
 	// check if URL is an email
 	var pattern=/^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
 	if(pattern.test(url.value)){
-		if (confirm("<%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_CONFIRMEMAIL_0)%>")) {
+		if (confirm("<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_CONFIRMEMAIL_0)))%>")) {
 			url.value = "mailto:" + url.value;
 			return;
 		}
