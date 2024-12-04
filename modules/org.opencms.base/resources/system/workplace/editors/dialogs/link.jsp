@@ -79,7 +79,7 @@ function init() {
 	if (anchor != "null") {
 		document.forms["NEU"].elements["neulink"].value = checkContext(decodeURIComponent(anchor), false);
 	}
-	var title= "<%= CmsStringUtil.escapeJavaScript(request.getParameter("title")) %>";
+	var title= "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(CmsStringUtil.escapeJavaScript(request.getParameter("title")))) %>";
 	if (title != "null") {
 		document.forms["NEU"].elements["linktitle"].value = title.trim();
 	}
