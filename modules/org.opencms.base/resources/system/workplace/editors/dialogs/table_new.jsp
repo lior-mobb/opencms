@@ -248,7 +248,7 @@ function resizeWindow() {
 	<td><select id="TableAlignment" name="TableAlignment" size="1" style="width: 140px;"<%= disabled %>>
 			<option value="" selected="selected"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_TABLE_NOTSPECIFIED_0) %></option>
       		<option value="left"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNLEFT_0)%></option>
-      		<option value="center"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNCENTER_0) %></option>
+      		<option value="center"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNCENTER_0))) %></option>
       		<option value="right"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNRIGHT_0)%></option>
       	</select> 
     </td>
