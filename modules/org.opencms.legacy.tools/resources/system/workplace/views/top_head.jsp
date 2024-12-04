@@ -97,7 +97,7 @@
 if (wp.showSiteSelector()) {
 
 %><%= wp.buttonBarSeparator(5, 0) %>          
-<%= wp.buttonBarLabel(org.opencms.workplace.Messages.GUI_LABEL_SITE_0) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.buttonBarLabel(org.opencms.workplace.Messages.GUI_LABEL_SITE_0))) %>
 <td>
 <form style="margin: 0; padding: 0;" name="wpSiteSelect" method="post" action="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(cms.link(cms.getRequestContext().getUri()))) %>">
 <div>
