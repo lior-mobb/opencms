@@ -43,7 +43,7 @@ default:
 
 	wp.setParamAction(CmsDialogElements.DIALOG_UPDATE_ELEMENTS);
 
-%><%= wp.htmlStart(null, wp.getParamTitle()) %>
+%><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlStart(null, wp.getParamTitle()))) %>
 <script>
 <!--
 
