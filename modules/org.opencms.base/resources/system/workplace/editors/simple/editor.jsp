@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.workplace.*,
 	org.opencms.workplace.editors.*,
@@ -52,7 +53,7 @@ default:
 <meta http-equiv="content-type" content="text/html; charset=<%= wp.getEncoding() %>">
 <title>(<%= wp.getSettings().getUser().getName() %>) - <%= wp.getParamResource() %></title>
 
-<link rel=stylesheet type="text/css" href="<%= wp.getStyleUri("workplace.css") %>">
+<link rel=stylesheet type="text/css" href="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getStyleUri("workplace.css"))) %>">
 
 <script >
 <!--
@@ -60,7 +61,7 @@ default:
 	var content="<%= wp.getParamContent() %>";
 
 	// Workplacepath needed in included javascript files
-	var workplacePath="<%= cms.link("/system/workplace/") %>";
+	var workplacePath="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(cms.link("/system/workplace/"))) %>";
 	
 	// action parameters of the form
 	var actionExit = "<%= CmsEditor.EDITOR_EXIT %>";
@@ -70,7 +71,7 @@ default:
 	// Ask user whether he really wants to leave Texteditor without saving
 	function confirmExit()
 	{
-		if (confirm ("<%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_EXIT_0)%>")) {
+		if (confirm ("<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_EXIT_0)))%>")) {
 			buttonAction(1);
 		}
 	}
@@ -110,7 +111,7 @@ if (wp.isHelpEnabled()) {%>
 	<%= wp.button("javascript:openOnlineHelp('/editors/simple');", null, "help.png", org.opencms.workplace.editors.Messages.GUI_BUTTON_HELP_0, buttonStyle) %><%
 } %>
 <td class="maxwidth">&nbsp;</td>
-<%= wp.button("javascript:confirmExit();", null, "exit", org.opencms.workplace.editors.Messages.GUI_BUTTON_CLOSE_0, buttonStyle) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:confirmExit();", null, "exit", org.opencms.workplace.editors.Messages.GUI_BUTTON_CLOSE_0, buttonStyle))) %>
 <%= wp.buttonBarSpacer(5) %>
 <%= wp.buttonBar(CmsWorkplace.HTML_END) %> 
 

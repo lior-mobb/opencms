@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.util.*,
 	org.opencms.workplace.*,
@@ -45,7 +46,7 @@ default:
 
 	wp.setParamAction(CmsDialogCopyLanguage.DIALOG_UPDATE_LANGUAGES);
 
-%><%= wp.htmlStart(null, wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_COPYLANGUAGE_TITLE_0)) %>
+%><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlStart(null, wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_COPYLANGUAGE_TITLE_0)))) %>
 <script>
 <!--
 
@@ -93,7 +94,7 @@ function registerElement(elemName, isEnabled) {
 <%= wp.paramsAsHidden() %>
 <input type="hidden" name="<%= CmsDialog.PARAM_FRAMENAME %>" value="">
 
-<p><%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_COPYLANGUAGE_HEADLINE_1, new Object[]{wp.getElementLocale().getDisplayName(wp.getLocale())})%></p>
+<p><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_COPYLANGUAGE_HEADLINE_1, new Object[]{wp.getElementLocale().getDisplayName(wp.getLocale())})))%></p>
 <%= wp.buildLanguageList() %>
 <p><%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_COPYLANGUAGE_WARNING_0) %></p>
 <%= wp.dialogContentEnd() %>
@@ -114,7 +115,7 @@ resizeWindow();
 <%
 } 
 %>
-<%= wp.htmlEnd() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlEnd())) %>
 <%
 } 
 //////////////////// end of switch statement 

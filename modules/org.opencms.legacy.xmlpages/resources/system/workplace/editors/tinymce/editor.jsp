@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@page import="java.io.UnsupportedEncodingException,
 	org.opencms.i18n.CmsEncoder,
 	org.opencms.editors.tinymce.*,
@@ -512,7 +513,7 @@ default:
 <title>(<%= wp.getSettings().getUser().getName() %>) - <%= wp.getParamResource() %></title>
 
 <link rel="stylesheet" type="text/css" href="<%= wp.getStyleUri("workplace.css") %>">
-<link rel="stylesheet" type="text/css" href="<%= cms.link("/system/workplace/editors/tinymce/tinymce_xmlpage.css") %>">
+<link rel="stylesheet" type="text/css" href="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(cms.link("/system/workplace/editors/tinymce/tinymce_xmlpage.css"))) %>">
 <script  src="<%= CmsWorkplace.getStaticResourceUri("editors/tinymce/jscripts/tinymce/tinymce.min.js") %>"></script>
 <script  src="<%= CmsWorkplace.getSkinUri() + "jquery/packed/" %>jquery.js"></script>
 <script >
@@ -845,7 +846,7 @@ function ocmsSave() {
 }
 
 function ocmsExit() {
-	if (!tinyMCE.get('tinymce_content').isDirty() || confirm("<%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_EXIT_0)%>")) {
+	if (!tinyMCE.get('tinymce_content').isDirty() || confirm("<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_EXIT_0)))%>")) {
 		execAction(tinyMCE.get('tinymce_content'), '<%= CmsEditor.EDITOR_EXIT %>','_top');
 	}
 }
@@ -920,7 +921,7 @@ if (elementSelection || elementLanguage) {
 		out.println(wp.deleteLocaleButton("javascript:confirmDeleteLocale();", null, "deletelocale", org.opencms.workplace.editors.Messages.GUI_BUTTON_DELETE_0, buttonStyle));
 		out.println(wp.buttonBarSpacer(2));
 	} else {
-		%><input type="hidden" name="<%= CmsEditor.PARAM_ELEMENTLANGUAGE %>" value="<%= wp.getParamElementlanguage() %>"><%
+		%><input type="hidden" name="<%= CmsEditor.PARAM_ELEMENTLANGUAGE %>" value="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getParamElementlanguage())) %>"><%
 	}
 	if (elementSelection) {
 		out.println("<td>" + wp.buildSelectElementName("name=\"" + CmsDefaultPageEditor.PARAM_ELEMENTNAME + "\" width=\"150\" onchange=\"buttonAction(3);\"") + "</td>");
@@ -931,7 +932,7 @@ if (elementSelection || elementLanguage) {
 	}
 } else {
 	// build hidden input fields that editor works correctly
-	%><input type="hidden" name="<%= CmsEditor.PARAM_ELEMENTLANGUAGE %>" value="<%= wp.getParamElementlanguage() %>"><input type="hidden" name="<%= CmsDefaultPageEditor.PARAM_ELEMENTNAME %>" value="<%= wp.getParamElementname() %>"><%
+	%><input type="hidden" name="<%= CmsEditor.PARAM_ELEMENTLANGUAGE %>" value="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getParamElementlanguage())) %>"><input type="hidden" name="<%= CmsDefaultPageEditor.PARAM_ELEMENTNAME %>" value="<%= wp.getParamElementname() %>"><%
 }
 if (options.showElement("option.properties", displayOptions)) {
 	if (elementLanguage && !elementSelection) {
@@ -944,7 +945,7 @@ if (options.showElement("option.cleanup", displayOptions)) {
 }
 %>
 <td class="maxwidth">&nbsp;</td>
-<%= wp.button("javascript:buttonAction(2);", null, "preview", org.opencms.workplace.editors.Messages.GUI_BUTTON_PREVIEW_0, buttonStyle) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:buttonAction(2);", null, "preview", org.opencms.workplace.editors.Messages.GUI_BUTTON_PREVIEW_0, buttonStyle))) %>
 <%= wp.buttonBarSpacer(5) %>
 <%= wp.buttonBar(CmsWorkplace.HTML_END) %>
 
@@ -966,13 +967,13 @@ document.write ('<textarea id="tinymce_content" name="tinymce_content" style="he
 
 <form style="display: none;" name="ELEMENTS" action="<%= cms.link("/system/workplace/editors/dialogs/elements.jsp") %>" target="DIALOGELEMENT" method="post">
 <input type="hidden" name="<%= CmsEditor.PARAM_TEMPFILE %>" value="<%= wp.getParamTempfile() %>">
-<input type="hidden" name="<%= CmsEditor.PARAM_ELEMENTLANGUAGE %>" value="<%= wp.getParamElementlanguage() %>">
+<input type="hidden" name="<%= CmsEditor.PARAM_ELEMENTLANGUAGE %>" value="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getParamElementlanguage())) %>">
 <input type="hidden" name="<%= CmsDefaultPageEditor.PARAM_ELEMENTNAME %>" value="<%= wp.getParamElementname() %>">
 <input type="hidden" name="<%= CmsDialog.PARAM_RESOURCE %>" value="<%= wp.getParamResource() %>">
 <input type="hidden" name="ispopup" value="true">
 </form>
 
-<form style="display: none;" name="PROPERTIES" action="<%= cms.link("/system/workplace/commons/property.jsp") %>" target="DIALOGPROPERTY" method="post">
+<form style="display: none;" name="PROPERTIES" action="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(cms.link("/system/workplace/commons/property.jsp"))) %>" target="DIALOGPROPERTY" method="post">
 <input type="hidden" name="<%= CmsDialog.PARAM_RESOURCE %>" value="<%= wp.getParamTempfile() %>">
 <input type="hidden" name="usetempfileproject" value="true">
 <input type="hidden" name="<%= CmsDialog.PARAM_ISPOPUP %>" value="true">

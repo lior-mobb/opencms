@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.editors.codemirror.*,
 	org.opencms.jsp.*,
@@ -262,7 +263,7 @@ if (modeName.equals("text/html")) {
 <%= wp.button("javascript:buttonAction(5);", null, "redo", org.opencms.workplace.editors.Messages.GUI_BUTTON_REDO_0, buttonStyle) %>
 <%= wp.buttonBarSeparator(5, 5) %>
 <td>
-	<select name="fontsize" onchange="setEditorFontSize(this.value);" title="<%= wp.key("GUI_EDITOR_SELECT_FONTSIZE_0") %>">
+	<select name="fontsize" onchange="setEditorFontSize(this.value);" title="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key("GUI_EDITOR_SELECT_FONTSIZE_0"))) %>">
 		<option value="-">--<%= wp.key("GUI_EDITOR_SELECT_FONTSIZE_0") %>--</option>
 		<option value="10">10px</option>
 		<option value="11">11px</option>
@@ -276,7 +277,7 @@ if (modeName.equals("text/html")) {
 </td>
 <%= wp.buttonBarSeparator(5, 5) %>
 <td>
-	<select name="fontsize" onchange="setEditorSyntax(this.value);" title="<%= wp.key("GUI_EDITOR_SELECT_SYNTAX_0") %>">
+	<select name="fontsize" onchange="setEditorSyntax(this.value);" title="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key("GUI_EDITOR_SELECT_SYNTAX_0"))) %>">
 		<option value="-">--<%= wp.key("GUI_EDITOR_SELECT_SYNTAX_0") %>--</option>
 		<option value="css"<% if (modeName.equals("css")) {%> selected="selected"<%}%>>CSS</option>
 		<option value="text/html"<% if (modeName.equals("text/html")) {%> selected="selected"<%}%>>HTML</option>
@@ -289,14 +290,14 @@ if (modeName.equals("text/html")) {
 <td style="vertical-align: top;">
 	<a href="#" onclick="javascript:buttonAction(6);" class="button" title="<%= wp.key("GUI_EDITOR_BUTTON_SYNTAXHIGHLIGHT_0") %>">
 		<span unselectable="on" class="push" onmouseover="className='over'" onmouseout="className=modeClass" onmousedown="className='push'" onmouseup="className='over'">
-			<img class="button" src="<%= wp.getEditorResourceUri() %>images/highlight.gif" alt="<%= wp.key("GUI_EDITOR_BUTTON_SYNTAXHIGHLIGHT_0") %>"/>
+			<img class="button" src="<%= wp.getEditorResourceUri() %>images/highlight.gif" alt="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key("GUI_EDITOR_BUTTON_SYNTAXHIGHLIGHT_0"))) %>"/>
 		</span>
 	</a>
 </td>
 <td style="vertical-align: top;">
 	<a href="#" onclick="javascript:buttonAction(7);" class="button" title="<%= wp.key("GUI_EDITOR_BUTTON_VISIBLETABS_0") %>">
 		<span unselectable="on" class="norm" onmouseover="className='over'" onmouseout="className=tabsClass" onmousedown="className='push'" onmouseup="className='over'">
-			<img class="button" src="<%= wp.getEditorResourceUri() %>images/visibletabs.png" alt="<%= wp.key("GUI_EDITOR_BUTTON_VISIBLETABS_0") %>"/>
+			<img class="button" src="<%= wp.getEditorResourceUri() %>images/visibletabs.png" alt="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key("GUI_EDITOR_BUTTON_VISIBLETABS_0"))) %>"/>
 		</span>
 	</a>
 </td>
@@ -304,7 +305,7 @@ if (modeName.equals("text/html")) {
 <td style="vertical-align: top;">
 	<a href="#" onclick="javascript:editorCodeMirror.setOption('autoCloseBrackets', !editorCodeMirror.getOption('autoCloseBrackets'));editorCodeMirror.setOption('autoCloseTags', !editorCodeMirror.getOption('autoCloseTags'));if (closeClass == 'push') { closeClass = 'norm'; } else { closeClass = 'push'; }" class="button" title="<%= wp.key("GUI_EDITOR_BUTTON_AUTOCLOSE_0") %>">
 		<span unselectable="on" class="push" onmouseover="className='over'" onmouseout="className=closeClass" onmousedown="className='push'" onmouseup="className='over'">
-			<img class="button" src="<%= wp.getEditorResourceUri() %>images/autoclose.png" alt="<%= wp.key("GUI_EDITOR_BUTTON_AUTOCLOSE_0") %>"/>
+			<img class="button" src="<%= wp.getEditorResourceUri() %>images/autoclose.png" alt="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key("GUI_EDITOR_BUTTON_AUTOCLOSE_0"))) %>"/>
 		</span>
 	</a>
 </td>

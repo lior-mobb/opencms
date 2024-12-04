@@ -1,10 +1,11 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.*" %><%
 	
 	// get workplace class from request attribute
 	CmsDialog wp = CmsDialog.initCmsDialog(pageContext, request, response);
 	wp.setParamAction(CmsDialog.DIALOG_CONFIRMED);
 
- %><%= wp.htmlStart() %>
+ %><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlStart())) %>
 <%= wp.bodyStart("dialog") %>
 <%= wp.dialogStart() %>
 
@@ -19,4 +20,4 @@
 
 <%= wp.dialogEnd() %>  
 <%= wp.bodyEnd() %>
-<%= wp.htmlEnd() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlEnd())) %>
