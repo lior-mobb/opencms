@@ -569,7 +569,7 @@ function submitActionRefresh(para1, para2, para3) {
 
     <%= wp.dialogEnd() %>
     <%= wp.bodyEnd() %>
-    <%= wp.htmlEnd() %>
+    <%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlEnd())) %>
 <%
 break;
 } 
