@@ -16,7 +16,7 @@ String uploadVariant = wp.getSettings().getUserSettings().getUploadVariant().toS
 <html>
 <head>
 
-<title><%= wp.key(Messages.GUI_TITLE_LINKGALLERY_0) %></title>
+<title><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(Messages.GUI_TITLE_LINKGALLERY_0))) %></title>
 
 <link rel="stylesheet" type="text/css" href="<%= galleryResourcePath %>css/dialog.css" />
 <link rel="stylesheet" type="text/css" href="<%= jQueryResourcePath %>css/thickbox/thickbox.css" />
