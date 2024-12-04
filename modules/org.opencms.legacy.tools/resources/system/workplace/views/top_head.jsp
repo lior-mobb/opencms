@@ -99,7 +99,7 @@ if (wp.showSiteSelector()) {
 %><%= wp.buttonBarSeparator(5, 0) %>          
 <%= wp.buttonBarLabel(org.opencms.workplace.Messages.GUI_LABEL_SITE_0) %>
 <td>
-<form style="margin: 0; padding: 0;" name="wpSiteSelect" method="post" action="<%= cms.link(cms.getRequestContext().getUri()) %>">
+<form style="margin: 0; padding: 0;" name="wpSiteSelect" method="post" action="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(cms.link(cms.getRequestContext().getUri()))) %>">
 <div>
 <%= wp.getSiteSelect("name=\"wpSite\" style=\"width:150px\" onchange=\"document.forms.wpSiteSelect.submit()\"") %>
 <input type="hidden" name="<%= CmsFrameset.PARAM_WP_FRAME %>" value="head">
