@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.main.*, org.opencms.workplace.*, org.opencms.workplace.explorer.*, org.opencms.util.CmsStringUtil" %><%	
 
 	// initialize the workplace class
@@ -14,7 +15,7 @@
 
 var linkEditorStyleInputs = <%= Boolean.parseBoolean(request.getParameter("showCss")) %>;
 var linkEditorPrefix = "<%= OpenCms.getSystemInfo().getOpenCmsContext() %>";
-var editorName = "<%= editorName %>";
+var editorName = "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(editorName)) %>";
 
 /**
 * Extends Javascript String to have a trim() function.
