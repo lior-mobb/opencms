@@ -32,6 +32,7 @@ import org.opencms.util.CmsUUID;
 import org.opencms.workplace.CmsDialog;
 
 import javax.servlet.jsp.JspWriter;
+import org.springframework.web.util.HtmlUtils;
 
 /**
  * Provides a GUI for displaying two images.<p>
@@ -83,10 +84,10 @@ public class CmsImageComparisonDialog extends CmsDialog {
                 Messages.GUI_COMPARE_VERSION_1,
                 new String[] {CmsHistoryListUtil.getDisplayVersion(m_paramVersion1, getLocale())}));
         out.println("</th><th>");
-        out.println(
+        out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(
             key(
                 Messages.GUI_COMPARE_VERSION_1,
-                new String[] {CmsHistoryListUtil.getDisplayVersion(m_paramVersion2, getLocale())}));
+                new String[] {CmsHistoryListUtil.getDisplayVersion(m_paramVersion2, getLocale())}))));
         out.println("</th></tr>");
         out.println("<tr><td>&nbsp;</td><td>&nbsp;</td></tr>");
         out.println("\t<tr align='center'>\n");
