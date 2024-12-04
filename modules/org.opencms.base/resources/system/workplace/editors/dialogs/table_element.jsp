@@ -12,7 +12,7 @@
 		dialogTitle = wp.key(org.opencms.workplace.editors.Messages.GUI_TITLE_CHANGETR_0);
 	} 
 	
-%><%= wp.htmlStart(null, dialogTitle) %>
+%><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlStart(null, dialogTitle))) %>
 
 <script >
 
