@@ -89,7 +89,7 @@ function init() {
 		case "error_selection":
 			if (window.dialogArguments["error_selection"] == "true") {
 				// Not selection.type = "None", display message and close window
-				alert("<%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_SELECTION_0) %>");
+				alert("<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_SELECTION_0))) %>");
 				window.close();
 			}
 			break;
