@@ -75,7 +75,7 @@ public class CmsImageComparisonDialog extends CmsDialog {
         String link1 = CmsHistoryListUtil.getHistoryLink(getCms(), new CmsUUID(m_paramId1), m_paramVersion1);
         String link2 = CmsHistoryListUtil.getHistoryLink(getCms(), new CmsUUID(m_paramId2), m_paramVersion2);
         JspWriter out = getJsp().getJspContext().getOut();
-        out.println(dialogBlockStart(key(Messages.GUI_COMPARE_CONTENT_0)));
+        out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(dialogBlockStart(key(Messages.GUI_COMPARE_CONTENT_0)))));
         out.println(dialogContentStart(null));
         out.println("<table cellpadding='0' cellspacing='0' border='0' class='maxwidth'><tr align='center'><th>");
         out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(
