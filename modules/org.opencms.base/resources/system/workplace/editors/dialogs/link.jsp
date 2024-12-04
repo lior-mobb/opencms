@@ -8,7 +8,7 @@
 		editorName = CmsStringUtil.escapeJavaScript(request.getParameter("editorname"));
 	}
 	
-%><%= wp.htmlStart(null, wp.key(org.opencms.workplace.editors.Messages.GUI_TITLE_NEWLINK_0)) %>
+%><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlStart(null, wp.key(org.opencms.workplace.editors.Messages.GUI_TITLE_NEWLINK_0)))) %>
 <script>
 <!--
 
@@ -75,18 +75,18 @@ function init() {
 	if (window.opener.linkEditorPrefix != null) {
     	linkEditorPrefix = window.opener.linkEditorPrefix;
 	}
-	var anchor = "<%= CmsStringUtil.escapeJavaScript(request.getParameter("href")) %>";
+	var anchor = "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(CmsStringUtil.escapeJavaScript(request.getParameter("href")))) %>";
 	if (anchor != "null") {
 		document.forms["NEU"].elements["neulink"].value = checkContext(decodeURIComponent(anchor), false);
 	}
-	var title= "<%= CmsStringUtil.escapeJavaScript(request.getParameter("title")) %>";
+	var title= "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(CmsStringUtil.escapeJavaScript(request.getParameter("title")))) %>";
 	if (title != "null") {
 		document.forms["NEU"].elements["linktitle"].value = title.trim();
 	}
 
 	if (linkEditorStyleInputs) {
 		var anchorStyle = "<%= CmsStringUtil.escapeJavaScript(request.getParameter("style")) %>";
-		var anchorClass = "<%= CmsStringUtil.escapeJavaScript(request.getParameter("class")) %>";
+		var anchorClass = "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(CmsStringUtil.escapeJavaScript(request.getParameter("class")))) %>";
 		if (anchorStyle != "null") {
 			document.forms["NEU"].elements["linkstyle"].value = anchorStyle;
 		}
@@ -161,13 +161,13 @@ function checkLinkUrl() {
 	// check if URL is an email
 	var pattern=/^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
 	if(pattern.test(url.value)){
-		if (confirm("<%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_CONFIRMEMAIL_0)%>")) {
+		if (confirm("<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_CONFIRMEMAIL_0)))%>")) {
 			url.value = "mailto:" + url.value;
 			return;
 		}
 	}
 	if (checkUrl(url.value)) {
-		var conf = confirm("<%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_CONFIRMHTTP_0)%>");
+		var conf = confirm("<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_CONFIRMHTTP_0)))%>");
 	    	if (conf) {
 	        	url.value = "http://" + url.value;
 	    	}
@@ -260,7 +260,7 @@ function checkContext(linkUrl, add) {
 <%= wp.bodyStart("dialog", " onLoad=\"init();\" onunload=\"closeTreeWin();\"") %>
 
 <%= wp.dialogStart() %>
-<%= wp.dialogContentStart(wp.key(org.opencms.workplace.editors.Messages.GUI_TITLE_NEWLINK_0)  ) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogContentStart(wp.key(org.opencms.workplace.editors.Messages.GUI_TITLE_NEWLINK_0)  ))) %>
 
 <form name="NEU" class="nomargin" onsubmit="pasteLink();">
 
@@ -270,7 +270,7 @@ function checkContext(linkUrl, add) {
                     <td class="maxwidth">
                         <input type="text" name="neulink"  class="maxwidth" value="" onchange="checkLinkUrl();" />
                     </td>
-                    <td><a href="javascript:openTreeWin('NEU', 'neulink', document);"><img src="<%= CmsWorkplace.getSkinUri() %>filetypes/folder.gif" border="0" alt="<%= wp.key(org.opencms.workplace.editors.Messages.GUI_LABEL_SELECTFOLDER_0)%>"></a></td>
+                    <td><a href="javascript:openTreeWin('NEU', 'neulink', document);"><img src="<%= CmsWorkplace.getSkinUri() %>filetypes/folder.gif" border="0" alt="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_LABEL_SELECTFOLDER_0)))%>"></a></td>
                 </tr>
                 <script>
                 <!--
@@ -278,19 +278,19 @@ function checkContext(linkUrl, add) {
                   document.write('<tr><td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKSTYLE_0) %>:</td>' +
                     '<td class="maxwidth"><input type="text" name="linkstyle" class="maxwidth"  />' +
                     '</td><td>&nbsp;</td></tr><tr>' +
-                    '<td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKSTYLECLASS_0) %>:</td>' +
+                    '<td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKSTYLECLASS_0))) %>:</td>' +
                     '<td class="maxwidth"><input type="text" name="linkstyleclass" class="maxwidth" />' +
                     '</td><td>&nbsp;</td></tr>');
                 }
                 // -->
                 </script>
                 <tr>
-                    <td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGET_0) %>:</td>
+                    <td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGET_0))) %>:</td>
                     <td class="maxwidth" style="white-space: nowrap;">
                       <select name="linktarget" id="linktarget" size="1" style="width:150px" onchange="setNameTarget(false);">
-                        <option value="_self"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETSELF_0)%></option>
+                        <option value="_self"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETSELF_0)))%></option>
                         <option value="_blank"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETBLANK_0) %></option>
-                        <option value="_top"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETTOP_0)%></option>
+                        <option value="_top"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETTOP_0)))%></option>
                         <option value="named"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETNAMED_0)%></option>
                       </select>
                       &nbsp;&nbsp;<span id="targetinput" class="maxwidth" style="visibility:hidden; text-align:right;"><input type="text" name="targetname" style="width:120px;" onchange="setNameTarget(true);" /></span></td>

@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
     org.opencms.file.CmsPropertyDefinition,
     org.opencms.util.CmsRequestUtil,
@@ -81,10 +82,10 @@
 
 <%= wp.buttonBar(CmsWorkplace.HTML_START) %>
 <%= wp.buttonBarStartTab(0, 0) %>
-<%= wp.buttonBarLabel(org.opencms.workplace.Messages.GUI_LABEL_PROJECT_0) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.buttonBarLabel(org.opencms.workplace.Messages.GUI_LABEL_PROJECT_0))) %>
 
 <td>
-<form style="margin: 0; padding: 0;" name="wpProjectSelect" method="post" action="<%= cms.link(cms.getRequestContext().getUri()) %>">
+<form style="margin: 0; padding: 0;" name="wpProjectSelect" method="post" action="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(cms.link(cms.getRequestContext().getUri()))) %>">
 <div>
 <%= wp.getProjectSelect("name=\"wpProject\" onchange=\"document.forms.wpProjectSelect.submit()\"", "style=\"width:150px\"") %>
 <input type="hidden" name="<%= CmsFrameset.PARAM_WP_FRAME %>" value="head">

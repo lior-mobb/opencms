@@ -131,7 +131,7 @@ function continueReport() {
 </script>
 
     <%= wp.bodyStart("empty", "style=\"background-color:/*begin-color ThreeDFace*/#f0f0f0/*end-color*/;\" onLoad=\"init();\"") %><%= wp.bodyEnd() %>
-    <%= wp.htmlEnd() %>
+    <%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlEnd())) %>
 
 <%
 
@@ -265,7 +265,7 @@ var cssStyle =
 var pageStartSimple =
     "<html>\n<head>\n" +
     "<meta HTTP-EQUIV='Content-Type' CONTENT='text/html; charset=<%= wp.getEncoding() %>'>\n" + 
-    "<link rel='stylesheet' type='text/css' href='<%= wp.getStyleUri("workplace.css") %>'>\n" +
+    "<link rel='stylesheet' type='text/css' href='<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getStyleUri("workplace.css"))) %>'>\n" +
     cssStyle +
     "</head>\n" +
     "<body style='background-color:/*begin-color Menu*/#f0f0f0/*end-color*/;'>\n" +   
@@ -562,14 +562,14 @@ function submitActionRefresh(para1, para2, para3) {
 </table>
 
 <table border="0" cellpadding="0" cellspacing="0" align="center"><tr>
-<td class="hide" style="width: 100%; text-align: center;" id="checkcontinue"><input type="checkbox" name="continuereport" id="continuereport" value="true">&nbsp;<%= wp.key(wp.getParamReportContinueKey()) %></td>
+<td class="hide" style="width: 100%; text-align: center;" id="checkcontinue"><input type="checkbox" name="continuereport" id="continuereport" value="true">&nbsp;<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(wp.getParamReportContinueKey()))) %></td>
 </tr></table>
 
 </form>
 
     <%= wp.dialogEnd() %>
     <%= wp.bodyEnd() %>
-    <%= wp.htmlEnd() %>
+    <%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlEnd())) %>
 <%
 break;
 } 
