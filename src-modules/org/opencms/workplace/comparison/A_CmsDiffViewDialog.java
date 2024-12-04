@@ -45,6 +45,7 @@ import java.io.StringReader;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
+import org.springframework.web.util.HtmlUtils;
 
 /**
  * Provides a GUI for the configuration file comparison dialog.<p>
@@ -89,7 +90,7 @@ public abstract class A_CmsDiffViewDialog extends CmsDialog {
         out.println("</form>");
         // icon is displayed on the right in order that the user needs not scroll to the icon for long lines
         out.println("<p>");
-        out.println(getDiffOnlyButtonsHtml());
+        out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(getDiffOnlyButtonsHtml())));
         out.println("</p>");
         out.println(dialogBlockStart(null));
         out.println("<table cellspacing='0' cellpadding='0' class='xmlTable'>\n<tr><td><pre style='overflow:auto'>");
@@ -99,7 +100,7 @@ public abstract class A_CmsDiffViewDialog extends CmsDialog {
                 getLocale());
             String diff = Diff.diffAsHtml(getOriginalSource(), getCopySource(), conf);
             if (CmsStringUtil.isNotEmpty(diff)) {
-                out.println(diff);
+                out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(diff)));
             } else {
                 // print original source, if there are no differences
                 out.println(

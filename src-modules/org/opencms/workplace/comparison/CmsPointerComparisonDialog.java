@@ -84,13 +84,13 @@ public class CmsPointerComparisonDialog extends CmsDialog {
         String linkTarget1 = new String(resource1.getContents());
         String linkTarget2 = new String(resource2.getContents());
         JspWriter out = getJsp().getJspContext().getOut();
-        out.println(dialogBlockStart(key(Messages.GUI_COMPARE_CONTENT_0)));
+        out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(dialogBlockStart(key(Messages.GUI_COMPARE_CONTENT_0)))));
         out.println(dialogContentStart(null));
         out.println("<table cellpadding='0' cellspacing='0' border='0' class='maxwidth'><tr align='center'><th>");
-        out.println(
+        out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(
             key(
                 Messages.GUI_COMPARE_VERSION_1,
-                new String[] {CmsHistoryListUtil.getDisplayVersion(m_paramVersion1, getLocale())}));
+                new String[] {CmsHistoryListUtil.getDisplayVersion(m_paramVersion1, getLocale())}))));
         out.println("</th><th>");
         out.println(
             key(
