@@ -34,6 +34,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
+import org.springframework.web.util.HtmlUtils;
 
 /**
  * Helper class for managing three lists on the same dialog.<p>
@@ -145,7 +146,7 @@ public class CmsMultiListDialog {
     public void writeDialog() throws IOException {
 
         JspWriter out = m_activeWp.getJsp().getJspContext().getOut();
-        out.print(defaultActionHtml());
+        out.print(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(defaultActionHtml())));
     }
 
     /**

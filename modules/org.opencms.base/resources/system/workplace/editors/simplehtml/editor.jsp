@@ -192,9 +192,9 @@ function popupCloseAction(closeObj) {
 boolean elementSelection = options.showElement("option.element.selection", displayOptions);
 boolean elementLanguage = options.showElement("option.element.language", displayOptions);
 if (elementSelection || elementLanguage) {
-	out.println(wp.buttonBarLabel(org.opencms.workplace.editors.Messages.GUI_INPUT_ELEMENT_0));
+	out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.buttonBarLabel(org.opencms.workplace.editors.Messages.GUI_INPUT_ELEMENT_0))));
 	if (elementLanguage) {
-		out.println("<td>" + wp.buildSelectElementLanguage("name=\"" + CmsEditor.PARAM_ELEMENTLANGUAGE + "\" width=\"150\" onchange=\"buttonAction(3);\"") + "</td>");
+		out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape("<td>" + wp.buildSelectElementLanguage("name=\"" + CmsEditor.PARAM_ELEMENTLANGUAGE + "\" width=\"150\" onchange=\"buttonAction(3);\"") + "</td>")));
 		out.println(wp.buttonBarSpacer(2));
 	} else {
 		%><input type="hidden" name="<%= CmsEditor.PARAM_ELEMENTLANGUAGE %>" value="<%= wp.getParamElementlanguage() %>"><%
@@ -202,7 +202,7 @@ if (elementSelection || elementLanguage) {
 	if (elementSelection) {
 		out.println("<td>" + wp.buildSelectElementName("name=\"" + CmsDefaultPageEditor.PARAM_ELEMENTNAME + "\" width=\"150\" onchange=\"buttonAction(3);\"") + "</td>");
 		out.println(wp.buttonBarSeparator(5, 5));
-		out.println(wp.button("javascript:buttonAction(4);", null, "elements", org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_ELEMENTS_BUTTON_0, buttonStyle));
+		out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:buttonAction(4);", null, "elements", org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_ELEMENTS_BUTTON_0, buttonStyle))));
 	} else {
 		%><input type="hidden" name="<%= CmsDefaultPageEditor.PARAM_ELEMENTNAME %>" value="<%= wp.getParamElementname() %>"><%
 	}
@@ -214,7 +214,7 @@ if (options.showElement("option.properties", displayOptions)) {
 	if (elementLanguage && !elementSelection) {
 		out.println(wp.buttonBarSeparator(5, 5));
 	}
-	out.println(wp.button("javascript:buttonAction(5);", null, "properties", org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_PROPERTIES_BUTTON_0, buttonStyle));
+	out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:buttonAction(5);", null, "properties", org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_PROPERTIES_BUTTON_0, buttonStyle))));
 }
 %>		
 <td class="maxwidth">&nbsp;</td>

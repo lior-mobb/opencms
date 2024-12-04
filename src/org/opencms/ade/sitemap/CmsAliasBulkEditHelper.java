@@ -62,6 +62,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.google.common.collect.Sets;
+import org.springframework.web.util.HtmlUtils;
 
 /**
  * Helper class used by a service to edit or import aliases for a whole site.<p>
@@ -116,7 +117,7 @@ public class CmsAliasBulkEditHelper {
         }
         String key = CmsVfsSitemapService.addAliasImportResult(result);
         // only respond with a key, then the client can get the data for the key via GWT-RPC
-        response.getWriter().print(key);
+        response.getWriter().print(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(key)));
     }
 
     /**

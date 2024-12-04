@@ -916,7 +916,7 @@ boolean elementLanguage = options.showElement("option.element.language", display
 if (elementSelection || elementLanguage) {
 	out.println(wp.buttonBarLabel(org.opencms.workplace.editors.Messages.GUI_INPUT_ELEMENT_0));
 	if (elementLanguage) {
-		out.println("<td>" + wp.buildSelectElementLanguage("name=\"" + CmsEditor.PARAM_ELEMENTLANGUAGE + "\" width=\"150\" onchange=\"buttonAction(3);\"") + "</td>");
+		out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape("<td>" + wp.buildSelectElementLanguage("name=\"" + CmsEditor.PARAM_ELEMENTLANGUAGE + "\" width=\"150\" onchange=\"buttonAction(3);\"") + "</td>")));
 		out.println(wp.deleteLocaleButton("javascript:confirmDeleteLocale();", null, "deletelocale", org.opencms.workplace.editors.Messages.GUI_BUTTON_DELETE_0, buttonStyle));
 		out.println(wp.buttonBarSpacer(2));
 	} else {
@@ -925,7 +925,7 @@ if (elementSelection || elementLanguage) {
 	if (elementSelection) {
 		out.println("<td>" + wp.buildSelectElementName("name=\"" + CmsDefaultPageEditor.PARAM_ELEMENTNAME + "\" width=\"150\" onchange=\"buttonAction(3);\"") + "</td>");
 		out.println(wp.buttonBarSeparator(5, 5));
-		out.println(wp.button("javascript:buttonAction(4);", null, "elements", org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_ELEMENTS_BUTTON_0, buttonStyle));
+		out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:buttonAction(4);", null, "elements", org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_ELEMENTS_BUTTON_0, buttonStyle))));
 	} else {
 		%><input type="hidden" name="<%= CmsDefaultPageEditor.PARAM_ELEMENTNAME %>" value="<%= wp.getParamElementname() %>"><%
 	}
@@ -940,7 +940,7 @@ if (options.showElement("option.properties", displayOptions)) {
 	out.println(wp.button("javascript:buttonAction(5);", null, "properties", org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_PROPERTIES_BUTTON_0, buttonStyle));
 }
 if (options.showElement("option.cleanup", displayOptions)) {
-	out.println(wp.button("javascript:buttonAction(13);", null, "cleanup", org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_CLEANUP_BUTTON_0, buttonStyle));
+	out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:buttonAction(13);", null, "cleanup", org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_CLEANUP_BUTTON_0, buttonStyle))));
 }
 %>
 <td class="maxwidth">&nbsp;</td>

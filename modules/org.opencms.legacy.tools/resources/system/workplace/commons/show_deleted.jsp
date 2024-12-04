@@ -28,7 +28,7 @@ default:
     wp.setParamAction(CmsDialog.DIALOG_INITIAL);
 %>
 
-<%= wp.htmlStart() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlStart())) %>
 <%= wp.buildIncludeJs() %>
 <%= wp.bodyStart("dialog") %>
 <%= wp.dialogStart() %>
@@ -44,7 +44,7 @@ default:
 <%= wp.dialogEnd() %>
 <%= wp.bodyEnd() %>
 <%= wp.buildReportRequest() %>
-<%= wp.htmlEnd() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlEnd())) %>
 <%
 } 
 //////////////////// end of switch statement 
