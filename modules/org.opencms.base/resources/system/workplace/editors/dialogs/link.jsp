@@ -86,7 +86,7 @@ function init() {
 
 	if (linkEditorStyleInputs) {
 		var anchorStyle = "<%= CmsStringUtil.escapeJavaScript(request.getParameter("style")) %>";
-		var anchorClass = "<%= CmsStringUtil.escapeJavaScript(request.getParameter("class")) %>";
+		var anchorClass = "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(CmsStringUtil.escapeJavaScript(request.getParameter("class")))) %>";
 		if (anchorStyle != "null") {
 			document.forms["NEU"].elements["linkstyle"].value = anchorStyle;
 		}
