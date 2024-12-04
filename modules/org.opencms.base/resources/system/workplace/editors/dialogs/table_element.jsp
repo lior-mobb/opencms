@@ -211,7 +211,7 @@ function checkField(elementId, checkFieldId) {
 <%= wp.bodyStart("dialog", "onload=\"init();\"") %>
 
 <%= wp.dialogStart() %>
-<%= wp.dialogContentStart(dialogTitle) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogContentStart(dialogTitle))) %>
 <form name="main" class="nomargin" onsubmit="checkValues(); return false;">
 
 <table border="0" cellpadding="3" cellspacing="0">
