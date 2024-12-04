@@ -174,7 +174,7 @@ public class CmsTwoListsDialog {
             return;
         }
         JspWriter out = m_activeWp.getJsp().getJspContext().getOut();
-        out.print(defaultActionHtml());
+        out.print(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(defaultActionHtml())));
     }
 
     /**
