@@ -367,7 +367,7 @@ function updateReport() {
     			pageStartSimple + 
     			"<span class='head'>" + lastHeadline + "</span><br>\n" +
     			"<%= wp.key(Messages.RPT_ERROR_0) %> " + lastError + "<br>\n" +
-    			"<%= wp.key(Messages.RPT_ERROR_DETAILS_0) %>" + 
+    			"<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(Messages.RPT_ERROR_DETAILS_0))) %>" + 
     			pageEndSimple;
     	} else {
 	    	pageBody = 

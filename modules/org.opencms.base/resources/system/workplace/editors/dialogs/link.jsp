@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.main.*, org.opencms.workplace.*, org.opencms.workplace.explorer.*, org.opencms.util.CmsStringUtil" %><%	
 
 	// initialize the workplace class
@@ -14,7 +15,7 @@
 
 var linkEditorStyleInputs = <%= Boolean.parseBoolean(request.getParameter("showCss")) %>;
 var linkEditorPrefix = "<%= OpenCms.getSystemInfo().getOpenCmsContext() %>";
-var editorName = "<%= editorName %>";
+var editorName = "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(editorName)) %>";
 
 /**
 * Extends Javascript String to have a trim() function.
@@ -96,7 +97,7 @@ function init() {
 	}
 	
 	document.forms["NEU"].elements["targetname"].value = "";
-	var anchorTarget = "<%= CmsStringUtil.escapeJavaScript(request.getParameter("target")) %>";
+	var anchorTarget = "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(CmsStringUtil.escapeJavaScript(request.getParameter("target")))) %>";
 	if (anchorTarget != "null") {
 		if ((anchorTarget == "_self") || (anchorTarget == "") || (anchorTarget == null)) {
     	    document.forms["NEU"].elements["linktarget"].selectedIndex = 0;
@@ -266,7 +267,7 @@ function checkContext(linkUrl, add) {
 
 <table border="0" cellspacing="0" cellpadding="4" width="100%">
                 <tr>
-                    <td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTO_0) %>:</td>
+                    <td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTO_0))) %>:</td>
                     <td class="maxwidth">
                         <input type="text" name="neulink"  class="maxwidth" value="" onchange="checkLinkUrl();" />
                     </td>
@@ -275,7 +276,7 @@ function checkContext(linkUrl, add) {
                 <script>
                 <!--
                 if (linkEditorStyleInputs) {
-                  document.write('<tr><td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKSTYLE_0) %>:</td>' +
+                  document.write('<tr><td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKSTYLE_0))) %>:</td>' +
                     '<td class="maxwidth"><input type="text" name="linkstyle" class="maxwidth"  />' +
                     '</td><td>&nbsp;</td></tr><tr>' +
                     '<td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKSTYLECLASS_0) %>:</td>' +
@@ -289,7 +290,7 @@ function checkContext(linkUrl, add) {
                     <td class="maxwidth" style="white-space: nowrap;">
                       <select name="linktarget" id="linktarget" size="1" style="width:150px" onchange="setNameTarget(false);">
                         <option value="_self"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETSELF_0)%></option>
-                        <option value="_blank"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETBLANK_0) %></option>
+                        <option value="_blank"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETBLANK_0))) %></option>
                         <option value="_top"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETTOP_0)%></option>
                         <option value="named"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETNAMED_0)%></option>
                       </select>
