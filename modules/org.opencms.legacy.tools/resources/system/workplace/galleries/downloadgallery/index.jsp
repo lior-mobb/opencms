@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.util.CmsStringUtil, org.opencms.workplace.galleries.*, org.opencms.gwt.shared.I_CmsUploadConstants, org.opencms.ade.upload.CmsUploadActionElement" %>
 <%@ taglib prefix="cms" uri="http://www.opencms.org/taglib/cms" %><%
 //initialize the gallery instance
@@ -16,7 +17,7 @@ String uploadVariant = wp.getSettings().getUserSettings().getUploadVariant().toS
 <html>
 <head>
 
-<title><%= wp.key(Messages.GUI_TITLE_DOWNLOADGALLERY_0) %></title>
+<title><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(Messages.GUI_TITLE_DOWNLOADGALLERY_0))) %></title>
 
 <link rel="stylesheet" type="text/css" href="<%= galleryResourcePath %>css/dialog.css" />
 <link rel="stylesheet" type="text/css" href="<%= jQueryResourcePath %>css/thickbox/thickbox.css" />
@@ -41,7 +42,7 @@ String uploadVariant = wp.getSettings().getUserSettings().getUploadVariant().toS
 <script  src="<%= jQueryResourcePath %>packed/thickbox.js"></script>
 <script  src="<%= jQueryResourcePath %>packed/jquery.ui.js"></script>
 
-<script  src="<%= wp.getJsp().link("../galleryelements/localization.js?locale=" + wp.getLocale()) %>"></script>
+<script  src="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getJsp().link("../galleryelements/localization.js?locale=" + wp.getLocale()))) %>"></script>
 <script  src="<%= galleryResourcePath %>js/jquery.jeditable.pack.js"></script>
 <script  src="<%= galleryResourcePath %>js/jquery.jHelperTip.1.0.min.js"></script>
 <script  src="<%= galleryResourcePath %>js/galleryfunctions.js"></script>
@@ -51,7 +52,7 @@ String uploadVariant = wp.getSettings().getUserSettings().getUploadVariant().toS
 <script >
 
 //link to ajaxcalls.jsp of download gallery
-var vfsPathAjaxJsp = "<%= wp.getJsp().link("/system/workplace/galleries/downloadgallery/ajaxcalls.jsp") %>";
+var vfsPathAjaxJsp = "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getJsp().link("/system/workplace/galleries/downloadgallery/ajaxcalls.jsp"))) %>";
 var vfsPathPrefixItems = "<%= org.opencms.workplace.CmsWorkplace.getSkinUri() %>components/galleries/img/";
 
 var initValues;
@@ -98,7 +99,7 @@ var uploadVariant = '<%=uploadVariant %>';
 		%> 
 	</div> <!-- close tag for jquery tabs -->
 	<div id="closebutton">
-		<button type="button" onclick="window.close();"><%= wp.key(Messages.GUI_GALLERY_BUTTON_CLOSE_0) %></button>
+		<button type="button" onclick="window.close();"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(Messages.GUI_GALLERY_BUTTON_CLOSE_0))) %></button>
 	</div>
 	<!-- The dialog html for the search dialog -->
 	<%@ include file="%(link.strong:/system/workplace/galleries/galleryelements/searchdialog.html:01f57eeb-5f28-11de-8c07-2d12956623b5)" %>

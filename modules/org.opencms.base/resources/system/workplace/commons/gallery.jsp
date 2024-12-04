@@ -20,7 +20,7 @@
     <% if (gallery.isWidgetMode()){ /* opened as widget include necessary scripts */ %>
     <script>
     	var <%= I_CmsGalleryProviderConstants.KEY_FIELD_ID %> = '<%= CmsStringUtil.escapeJavaScript(request.getParameter(I_CmsGalleryProviderConstants.KEY_FIELD_ID)) %>';
-    	var <%= I_CmsGalleryProviderConstants.KEY_HASH_ID %> = '<%= CmsStringUtil.escapeJavaScript(request.getParameter(I_CmsGalleryProviderConstants.KEY_HASH_ID)) %>';
+    	var <%= I_CmsGalleryProviderConstants.KEY_HASH_ID %> = '<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(CmsStringUtil.escapeJavaScript(request.getParameter(I_CmsGalleryProviderConstants.KEY_HASH_ID)))) %>';
     	function closeDialog(){
     	    window.parent.cmsCloseDialog(<%= I_CmsGalleryProviderConstants.KEY_FIELD_ID %>);
     	}

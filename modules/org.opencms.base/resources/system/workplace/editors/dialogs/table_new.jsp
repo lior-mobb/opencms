@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.*" %><%	
 
 	// initialize the workplace class
@@ -13,7 +14,7 @@
 		disabled = " disabled=\"disabled\" style=\"background-color: /*begin-color Menu*/#f0f0f0/*end-color*/;\"";
 	} 
 	
-%><%= wp.htmlStart(null, dialogTitle) %>
+%><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlStart(null, dialogTitle))) %>
 
 <script >
 
@@ -219,7 +220,7 @@ function resizeWindow() {
 	<td class="maxwidth">&nbsp;</td>
 	<td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_WIDTH_0)%>:</td>
 	<td><select name="TableWidthMode" id="TableWidthMode" size="1" style="width: 150px;" onchange="checkField('TableWidthMode', 'TableWidth');"<%= disabled %>>
-  			<option value="" selected="selected"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_TABLE_NOTSPECIFIED_0)%></option>
+  			<option value="" selected="selected"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_TABLE_NOTSPECIFIED_0)))%></option>
       		<option value="%"> <%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_INPERCENT_0) %>
       		<option value="pixel"> <%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_INPIXEL_0) %>
       	</select></td>
@@ -231,7 +232,7 @@ function resizeWindow() {
 	<td class="maxwidth">&nbsp;</td>
 	<td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_HEIGHT_0) %>:</td>
 	<td><select name="TableHeightMode" id="TableHeightMode" size="1" style="width: 150px;" onchange="checkField('TableHeightMode', 'TableHeight');"<%= disabled %>>
-  			<option value="" selected="selected"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_TABLE_NOTSPECIFIED_0) %></option>
+  			<option value="" selected="selected"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_TABLE_NOTSPECIFIED_0))) %></option>
       		<option value="%"> <%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_INPERCENT_0)%>
       		<option value="pixel"> <%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_INPIXEL_0) %>
       	</select></td> 
@@ -249,7 +250,7 @@ function resizeWindow() {
 			<option value="" selected="selected"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_TABLE_NOTSPECIFIED_0) %></option>
       		<option value="left"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNLEFT_0)%></option>
       		<option value="center"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNCENTER_0) %></option>
-      		<option value="right"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNRIGHT_0)%></option>
+      		<option value="right"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNRIGHT_0)))%></option>
       	</select> 
     </td>
     <td class="maxwidth">&nbsp;</td>
@@ -258,7 +259,7 @@ function resizeWindow() {
   	<%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_PADDINGINFO_0)%></td>
 </tr>
 <tr>
-	<td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_BORDER_0) %>:</td>
+	<td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_BORDER_0))) %>:</td>
 	<td><input id="BorderLineWitdh" type="text" size="15" style="width: 140px;" name="BorderLineWidth" onkeypress="event.returnValue=IsDigit();"></td>
     <td class="maxwidth">&nbsp;</td>
 	<td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_SPACING_0) %>: </td>
