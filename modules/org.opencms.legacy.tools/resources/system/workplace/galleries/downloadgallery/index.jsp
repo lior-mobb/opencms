@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.util.CmsStringUtil, org.opencms.workplace.galleries.*, org.opencms.gwt.shared.I_CmsUploadConstants, org.opencms.ade.upload.CmsUploadActionElement" %>
 <%@ taglib prefix="cms" uri="http://www.opencms.org/taglib/cms" %><%
 //initialize the gallery instance
@@ -16,7 +17,7 @@ String uploadVariant = wp.getSettings().getUserSettings().getUploadVariant().toS
 <html>
 <head>
 
-<title><%= wp.key(Messages.GUI_TITLE_DOWNLOADGALLERY_0) %></title>
+<title><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(Messages.GUI_TITLE_DOWNLOADGALLERY_0))) %></title>
 
 <link rel="stylesheet" type="text/css" href="<%= galleryResourcePath %>css/dialog.css" />
 <link rel="stylesheet" type="text/css" href="<%= jQueryResourcePath %>css/thickbox/thickbox.css" />
