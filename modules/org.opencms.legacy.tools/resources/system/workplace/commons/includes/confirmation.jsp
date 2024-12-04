@@ -5,7 +5,7 @@
 	CmsDialog wp = CmsDialog.initCmsDialog(pageContext, request, response);
 	wp.setParamAction(CmsDialog.DIALOG_CONFIRMED);
 
- %><%= wp.htmlStart() %>
+ %><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlStart())) %>
 <%= wp.bodyStart("dialog") %>
 <%= wp.dialogStart() %>
 
