@@ -8,7 +8,7 @@
 		editorName = CmsStringUtil.escapeJavaScript(request.getParameter("editorname"));
 	}
 	
-%><%= wp.htmlStart(null, wp.key(org.opencms.workplace.editors.Messages.GUI_TITLE_NEWLINK_0)) %>
+%><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlStart(null, wp.key(org.opencms.workplace.editors.Messages.GUI_TITLE_NEWLINK_0)))) %>
 <script>
 <!--
 
