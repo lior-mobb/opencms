@@ -52,7 +52,7 @@ String uploadVariant = wp.getSettings().getUserSettings().getUploadVariant().toS
 <script >
 
 //link to ajaxcalls.jsp of download gallery
-var vfsPathAjaxJsp = "<%= wp.getJsp().link("/system/workplace/galleries/downloadgallery/ajaxcalls.jsp") %>";
+var vfsPathAjaxJsp = "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getJsp().link("/system/workplace/galleries/downloadgallery/ajaxcalls.jsp"))) %>";
 var vfsPathPrefixItems = "<%= org.opencms.workplace.CmsWorkplace.getSkinUri() %>components/galleries/img/";
 
 var initValues;
