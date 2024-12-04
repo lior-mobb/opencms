@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.*" %><%	
 
 	// initialize the workplace class
@@ -29,7 +30,7 @@ var colorField = null;
 
 <!-- Object for color picker modaldialog -->
 var colorPicker = new Object();
-colorPicker.title = "<%=  wp.key(org.opencms.workplace.editors.Messages.GUI_DIALOG_COLOR_TITLE_0) %>";
+colorPicker.title = "<%=  HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_DIALOG_COLOR_TITLE_0))) %>";
 colorPicker.color = "000000";
 
 <!-- Checks if a entered number is a digit -->
