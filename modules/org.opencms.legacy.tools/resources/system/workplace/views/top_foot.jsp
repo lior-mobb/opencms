@@ -16,7 +16,7 @@
 <html>
 <head>
 <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=<%= wp.getEncoding() %>">
-<link rel="stylesheet" type="text/css" href="<%= CmsWorkplace.getStyleUri(wp.getJsp(), "workplace.css")%>">
+<link rel="stylesheet" type="text/css" href="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(CmsWorkplace.getStyleUri(wp.getJsp(), "workplace.css")))%>">
 <title>OpenCms Workplace Foot Frame</title>
 <script > 
 function doReloadFoot() {
