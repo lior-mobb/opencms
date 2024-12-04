@@ -720,7 +720,7 @@ tinyMCE.init({
     paste_as_text: <%=""+Boolean.valueOf(OpenCms.getWorkplaceManager().getWorkplaceEditorManager().getEditorConfiguration("tinymce").getParameters().get("paste_text"))%>,
     cmsGalleryEnhancedOptions : <%= options.showElement("gallery.enhancedoptions", displayOptions)%>,
     cmsGalleryUseThickbox : <%= options.showElement("gallery.usethickbox", displayOptions)%>,
-    language : "<%= wp.getLocale().getLanguage() %>",
+    language : "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getLocale().getLanguage())) %>",
 	relative_urls: false,
     remove_script_host: false,
 
