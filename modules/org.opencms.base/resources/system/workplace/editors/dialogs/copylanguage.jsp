@@ -46,7 +46,7 @@ default:
 
 	wp.setParamAction(CmsDialogCopyLanguage.DIALOG_UPDATE_LANGUAGES);
 
-%><%= wp.htmlStart(null, wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_COPYLANGUAGE_TITLE_0)) %>
+%><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlStart(null, wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_COPYLANGUAGE_TITLE_0)))) %>
 <script>
 <!--
 
