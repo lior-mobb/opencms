@@ -101,10 +101,10 @@ public class CmsImageComparisonDialog extends CmsDialog {
         out.println("\t\t<td width='50%'><img src='");
         out.print(getJsp().link(link2));
         out.print("' alt='");
-        out.print(
+        out.print(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(
             key(
                 Messages.GUI_COMPARE_VERSION_1,
-                new String[] {CmsHistoryListUtil.getDisplayVersion(m_paramVersion2, getLocale())}));
+                new String[] {CmsHistoryListUtil.getDisplayVersion(m_paramVersion2, getLocale())}))));
         out.print("'/></td>\n");
         out.println("\t</tr>");
         out.println("</table>");
