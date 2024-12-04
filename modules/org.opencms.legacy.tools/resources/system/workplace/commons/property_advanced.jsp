@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.commons.*" %><%	
 
 	// initialize the workplace class
@@ -59,7 +60,7 @@ case CmsPropertyAdvanced.ACTION_SHOW_DEFINE:
 	wp.actionEdit(request);
 	wp.setParamAction(wp.DIALOG_SAVE_DEFINE);
 	
-%><%= wp.htmlStart("help.explorer.contextmenu.properties", wp.getParamTitle()) %>
+%><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlStart("help.explorer.contextmenu.properties", wp.getParamTitle()))) %>
 <script >
 <!--
 function checkName() {
@@ -84,12 +85,12 @@ function checkName() {
 
 <table border="0" width="100%">
 <tr>
-	<td style="white-space: nowrap;" unselectable="on"><%= wp.key(Messages.GUI_PROPERTY_NEW_0) %></td>
+	<td style="white-space: nowrap;" unselectable="on"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(Messages.GUI_PROPERTY_NEW_0))) %></td>
 	<td class="maxwidth"><input id="<%= wp.PARAM_NEWPROPERTY %>" name="<%= wp.PARAM_NEWPROPERTY %>" type="text" value="" class="maxwidth" onKeyup="checkName();" on></td>
 </tr>
 </table>
 
-<%= wp.dialogSubheadline(wp.key(Messages.GUI_PROPERTIES_ACTIVE_0)) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogSubheadline(wp.key(Messages.GUI_PROPERTIES_ACTIVE_0)))) %>
 
 <%= wp.dialogWhiteBoxStart() %>
 <%= wp.buildActivePropertiesList() %>
@@ -102,7 +103,7 @@ function checkName() {
 
 <%= wp.dialogEnd() %>
 <%= wp.bodyEnd() %>
-<%= wp.htmlEnd() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlEnd())) %>
 <%
 break;
 
@@ -145,7 +146,7 @@ function toggleDelete(propName, prefix, activeTab) {
 	field.value = "";
 	if (checked == true) {
 		// box has been checked, check style and get value from hidden field
-		if (activeTab == "<%= wp.key(Messages.GUI_PROPERTIES_INDIVIDUAL_0) %>" && field.className == "dialogmarkedfield") {
+		if (activeTab == "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(Messages.GUI_PROPERTIES_INDIVIDUAL_0))) %>" && field.className == "dialogmarkedfield") {
 			field.className = "maxwidth";
 		}
 		m_field = field;
@@ -155,7 +156,7 @@ function toggleDelete(propName, prefix, activeTab) {
 	} else {
 		// box has been unchecked 
 		var resValue = document.getElementById("<%= wp.PREFIX_RESOURCE %>"+propName).value;
-		if (activeTab == "<%= wp.key(Messages.GUI_PROPERTIES_INDIVIDUAL_0) %>" && resValue.length > 0) {
+		if (activeTab == "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(Messages.GUI_PROPERTIES_INDIVIDUAL_0))) %>" && resValue.length > 0) {
 			// in "shared properties" form, show resource value if present			
 			field.className = "dialogmarkedfield";
 			m_field = field;
@@ -192,7 +193,7 @@ function checkValue(propName, activeTab) {
 // called on the onFocus event of an input field
 function deleteResEntry(propName, activeTab) {
 	var field = document.getElementById("<%= wp.PREFIX_VALUE %>"+propName);
-	if (activeTab == "<%= wp.key(Messages.GUI_PROPERTIES_INDIVIDUAL_0) %>" && field.className == "dialogmarkedfield") {
+	if (activeTab == "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(Messages.GUI_PROPERTIES_INDIVIDUAL_0))) %>" && field.className == "dialogmarkedfield") {
 		// clear field to allow individual input
 		field.value = "";
 		field.className = "maxwidth";
@@ -201,7 +202,7 @@ function deleteResEntry(propName, activeTab) {
 
 // called on the onBlur event of an input field
 function checkResEntry(propName, activeTab) {
-	if (activeTab == "<%= wp.key(Messages.GUI_PROPERTIES_INDIVIDUAL_0) %>") {
+	if (activeTab == "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(Messages.GUI_PROPERTIES_INDIVIDUAL_0))) %>") {
 		// check only in "shared properties" form
 		var newVal = document.getElementById("<%= wp.PREFIX_VALUE %>"+propName).value;
 		var resVal = document.getElementById("<%= wp.PREFIX_RESOURCE %>"+propName).value;
@@ -256,7 +257,7 @@ resizeWindow();
 <%
 } 
 %><%= wp.bodyEnd() %>
-<%= wp.htmlEnd() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlEnd())) %>
 <%
 } 
 //////////////////// end of switch statement 

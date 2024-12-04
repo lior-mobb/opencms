@@ -16,7 +16,7 @@
 
 <head>
 <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=<%= wp.getEncoding() %>">
-<link rel="stylesheet" type="text/css" href="<%= CmsWorkplace.getStyleUri(wp.getJsp(), "workplace.css")%>">
+<link rel="stylesheet" type="text/css" href="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(CmsWorkplace.getStyleUri(wp.getJsp(), "workplace.css")))%>">
 <title>OpenCms Workplace Head Frame</title>
 <script >
     var pfad="<%= wp.getResourceUri() %>";
@@ -36,7 +36,7 @@
 %>    
     function doLogout() {
     	var windowCoords = calculateWinCoords();
-    	window.top.location.href = "<%= exitLink %>&<%= CmsLogin.PARAM_WPDATA %>=" + windowCoords;
+    	window.top.location.href = "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(exitLink)) %>&<%= CmsLogin.PARAM_WPDATA %>=" + windowCoords;
     }
 
     function doReload() {
@@ -44,7 +44,7 @@
     }
 
     function doShowPublishQueue(){
-		window.top.location.href = '<%= cms.link("/system/workplace/views/admin/admin-fs.jsp") %>';
+		window.top.location.href = '<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(cms.link("/system/workplace/views/admin/admin-fs.jsp"))) %>';
 		loadBody();
     }
     
@@ -97,9 +97,9 @@
 if (wp.showSiteSelector()) {
 
 %><%= wp.buttonBarSeparator(5, 0) %>          
-<%= wp.buttonBarLabel(org.opencms.workplace.Messages.GUI_LABEL_SITE_0) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.buttonBarLabel(org.opencms.workplace.Messages.GUI_LABEL_SITE_0))) %>
 <td>
-<form style="margin: 0; padding: 0;" name="wpSiteSelect" method="post" action="<%= cms.link(cms.getRequestContext().getUri()) %>">
+<form style="margin: 0; padding: 0;" name="wpSiteSelect" method="post" action="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(cms.link(cms.getRequestContext().getUri()))) %>">
 <div>
 <%= wp.getSiteSelect("name=\"wpSite\" style=\"width:150px\" onchange=\"document.forms.wpSiteSelect.submit()\"") %>
 <input type="hidden" name="<%= CmsFrameset.PARAM_WP_FRAME %>" value="head">
@@ -109,9 +109,9 @@ if (wp.showSiteSelector()) {
 <% } %>
 
 <%= wp.buttonBarSeparator(5, 0) %>          
-<%= wp.buttonBarLabel(org.opencms.workplace.Messages.GUI_LABEL_VIEW_0) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.buttonBarLabel(org.opencms.workplace.Messages.GUI_LABEL_VIEW_0))) %>
 <td>
-<form style="margin: 0; padding: 0;" name="wpViewSelect" method="post" action="<%= cms.link(cms.getRequestContext().getUri()) %>">
+<form style="margin: 0; padding: 0;" name="wpViewSelect" method="post" action="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(cms.link(cms.getRequestContext().getUri()))) %>">
 <div>
 <%= wp.getViewSelect("name=\"wpView\" style=\"width:150px\" onchange=\"document.forms.wpViewSelect.submit()\"") %>
 <input type="hidden" name="<%= CmsFrameset.PARAM_WP_FRAME %>" value="head">
@@ -119,7 +119,7 @@ if (wp.showSiteSelector()) {
 </form></td>
 
 <%= wp.buttonBarSeparator(5, 0) %>
-<%= wp.button("javascript:doReload()", null, "reload.png", org.opencms.workplace.Messages.GUI_BUTTON_RELOAD_0, buttonStyle) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:doReload()", null, "reload.png", org.opencms.workplace.Messages.GUI_BUTTON_RELOAD_0, buttonStyle))) %>
 <%= wp.getPreferencesButton() %>
 
 <% 
@@ -133,7 +133,7 @@ if (wp.isHelpEnabled()) {
        
 <td style="width: 100%">&nbsp;</td>
 <%= wp.buttonBarSeparator(5, 0) %>
-<%= wp.button("javascript:doLogout()", null, "logout.png", org.opencms.workplace.Messages.GUI_BUTTON_EXIT_0, buttonStyle) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:doLogout()", null, "logout.png", org.opencms.workplace.Messages.GUI_BUTTON_EXIT_0, buttonStyle))) %>
 
 <% if (buttonStyle != 2) {%>
 

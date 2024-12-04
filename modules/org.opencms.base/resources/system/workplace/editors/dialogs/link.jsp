@@ -85,7 +85,7 @@ function init() {
 	}
 
 	if (linkEditorStyleInputs) {
-		var anchorStyle = "<%= CmsStringUtil.escapeJavaScript(request.getParameter("style")) %>";
+		var anchorStyle = "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(CmsStringUtil.escapeJavaScript(request.getParameter("style")))) %>";
 		var anchorClass = "<%= CmsStringUtil.escapeJavaScript(request.getParameter("class")) %>";
 		if (anchorStyle != "null") {
 			document.forms["NEU"].elements["linkstyle"].value = anchorStyle;
@@ -291,13 +291,13 @@ function checkContext(linkUrl, add) {
                         <option value="_self"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETSELF_0)%></option>
                         <option value="_blank"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETBLANK_0) %></option>
                         <option value="_top"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETTOP_0)%></option>
-                        <option value="named"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETNAMED_0)%></option>
+                        <option value="named"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETNAMED_0)))%></option>
                       </select>
                       &nbsp;&nbsp;<span id="targetinput" class="maxwidth" style="visibility:hidden; text-align:right;"><input type="text" name="targetname" style="width:120px;" onchange="setNameTarget(true);" /></span></td>
                     <td>&nbsp;</td>
                 </tr>   
                 <tr>
-                    <td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTITLE_0)%>:</td>
+                    <td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTITLE_0)))%>:</td>
                     <td class="maxwidth">
                         <input type="text" name="linktitle"  class="maxwidth" value="" />
                     </td>
@@ -314,4 +314,4 @@ function checkContext(linkUrl, add) {
 <%= wp.dialogEnd() %>
 
 <%= wp.bodyEnd() %>
-<%= wp.htmlEnd() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlEnd())) %>

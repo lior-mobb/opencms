@@ -55,7 +55,7 @@ default:
 
 	wp.setParamAction(wp.DIALOG_SAVE_EDIT);
 	
-%><%= wp.htmlStart(null, wp.getParamTitle()) %>
+%><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlStart(null, wp.getParamTitle()))) %>
 <script >
 <!--
 
@@ -216,7 +216,7 @@ function doSet() {
 <%= wp.paramsAsHidden() %>
 <input type="hidden" name="<%= wp.PARAM_FRAMENAME %>" value="">
 
-<%= wp.buildEditForm() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.buildEditForm())) %>
 
 <%= wp.dialogContentEnd() %>
 

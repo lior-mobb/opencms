@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.*" %><%	
 
 	// initialize the workplace class
@@ -11,7 +12,7 @@
 		dialogTitle = wp.key(org.opencms.workplace.editors.Messages.GUI_TITLE_CHANGETR_0);
 	} 
 	
-%><%= wp.htmlStart(null, dialogTitle) %>
+%><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlStart(null, dialogTitle))) %>
 
 <script >
 
@@ -29,7 +30,7 @@ var colorField = null;
 
 <!-- Object for color picker modaldialog -->
 var colorPicker = new Object();
-colorPicker.title = "<%=  wp.key(org.opencms.workplace.editors.Messages.GUI_DIALOG_COLOR_TITLE_0) %>";
+colorPicker.title = "<%=  HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_DIALOG_COLOR_TITLE_0))) %>";
 colorPicker.color = "000000";
 
 <!-- Checks if a entered number is a digit -->
@@ -81,14 +82,14 @@ function init() {
 		case "error_notable":
 			if (window.dialogArguments["error_notable"] == "true") {
 				// Not inside table, display message and close window
-				alert("<%=  wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_NOTABLE_0) %>");
+				alert("<%=  HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_NOTABLE_0))) %>");
 				window.close();
 			}
 			break;
 		case "error_selection":
 			if (window.dialogArguments["error_selection"] == "true") {
 				// Not selection.type = "None", display message and close window
-				alert("<%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_SELECTION_0) %>");
+				alert("<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_SELECTION_0))) %>");
 				window.close();
 			}
 			break;
@@ -216,19 +217,19 @@ function checkField(elementId, checkFieldId) {
 
 <table border="0" cellpadding="3" cellspacing="0">
 <tr>
-  <td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_HEIGHT_0) %>:</td>
+  <td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_HEIGHT_0))) %>:</td>
   <td><input id="TDHeight" type="text" size="7" maxlength="7" style="width:150px;" name="TDHeight" onkeypress="event.returnValue=IsDigit();"></td>
-  <td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_BORDERINFO_0)%></td>
+  <td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_BORDERINFO_0)))%></td>
 </tr>
 <tr>
-  <td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_WIDTH_0)%>: </td>
+  <td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_WIDTH_0)))%>: </td>
   <td><input id="TDWidth" type="text" size="7" maxlength="7" style="width:150px;" name="TDWidth" onkeypress="event.returnValue=IsDigit();"></td>
-  <td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_BORDERINFO_0) %></td>
+  <td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_BORDERINFO_0))) %></td>
 </tr>  
 <tr>
-  <td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGN_0)%>: </td>
+  <td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGN_0)))%>: </td>
   <td colspan="2"><select name="TDAlign" id="TDAlign" size="1" style="width:150px;">
-        <option value=""><%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_TABLE_NOTSPECIFIED_0)%></option>
+        <option value=""><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_TABLE_NOTSPECIFIED_0)))%></option>
         <option value="left"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNLEFT_0)%></option>
         <option value="center"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNCENTER_0) %></option>
         <option value="right"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNRIGHT_0) %></option>

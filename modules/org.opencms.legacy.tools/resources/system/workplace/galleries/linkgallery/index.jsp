@@ -16,7 +16,7 @@ String uploadVariant = wp.getSettings().getUserSettings().getUploadVariant().toS
 <html>
 <head>
 
-<title><%= wp.key(Messages.GUI_TITLE_LINKGALLERY_0) %></title>
+<title><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(Messages.GUI_TITLE_LINKGALLERY_0))) %></title>
 
 <link rel="stylesheet" type="text/css" href="<%= galleryResourcePath %>css/dialog.css" />
 <link rel="stylesheet" type="text/css" href="<%= jQueryResourcePath %>css/thickbox/thickbox.css" />
@@ -43,7 +43,7 @@ String uploadVariant = wp.getSettings().getUserSettings().getUploadVariant().toS
 <script  src="<%= jQueryResourcePath %>packed/thickbox.js"></script>
 <script  src="<%= jQueryResourcePath %>packed/jquery.ui.js"></script>
 
-<script  src="<%= wp.getJsp().link("../galleryelements/localization.js?locale=" + wp.getLocale()) %>"></script>
+<script  src="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getJsp().link("../galleryelements/localization.js?locale=" + wp.getLocale()))) %>"></script>
 <script  src="<%= galleryResourcePath %>js/jquery.jeditable.pack.js"></script>
 <script  src="<%= galleryResourcePath %>js/jquery.jHelperTip.1.0.min.js"></script>
 <script  src="<%= galleryResourcePath %>js/galleryfunctions.js"></script>
@@ -53,7 +53,7 @@ String uploadVariant = wp.getSettings().getUserSettings().getUploadVariant().toS
 <script >
 
 //link to ajaxcalls.jsp of the gallery
-var vfsPathAjaxJsp = "<%= wp.getJsp().link("/system/workplace/galleries/linkgallery/ajaxcalls.jsp") %>";
+var vfsPathAjaxJsp = "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getJsp().link("/system/workplace/galleries/linkgallery/ajaxcalls.jsp"))) %>";
 var vfsPathPrefixItems = "<%= org.opencms.workplace.CmsWorkplace.getSkinUri() %>components/galleries/img/";
 
 var initValues;

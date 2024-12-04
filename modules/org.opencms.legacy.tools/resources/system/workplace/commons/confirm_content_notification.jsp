@@ -25,7 +25,7 @@ break;
 default:
 %>
 
-    <%= wp.htmlStart() %>
+    <%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlStart())) %>
     <%= wp.bodyStart("Content Notification Confirmation") %>
     <%= wp.dialogStart() %>
     <%= wp.dialogContentStart("OpenCms content notification") %>
@@ -74,6 +74,6 @@ default:
 </form>
     <%= wp.dialogEnd() %>
     <%= wp.bodyEnd() %>
-    <%= wp.htmlEnd() %>
+    <%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlEnd())) %>
 
 <% } %>
