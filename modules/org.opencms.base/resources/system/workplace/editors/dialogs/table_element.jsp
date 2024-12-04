@@ -231,13 +231,13 @@ function checkField(elementId, checkFieldId) {
         <option value=""><%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_TABLE_NOTSPECIFIED_0)%></option>
         <option value="left"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNLEFT_0)%></option>
         <option value="center"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNCENTER_0) %></option>
-        <option value="right"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNRIGHT_0) %></option>
+        <option value="right"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNRIGHT_0))) %></option>
       </select>
 </tr>
 <tr>
-  <td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_VALIGN_0)%>: </td>
+  <td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_VALIGN_0)))%>: </td>
   <td colspan="2"><select name="TDVAlign" id="TDVAlign" size="1" style="width:150px;">
-        <option value=""><%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_TABLE_NOTSPECIFIED_0) %></option>
+        <option value=""><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_TABLE_NOTSPECIFIED_0))) %></option>
         <option value="top"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_VALIGNTOP_0) %></option>
         <option value="middle"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_VALIGNMIDDLE_0) %></option>
         <option value="bottom"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_VALIGNBOTTOM_0) %></option>        
