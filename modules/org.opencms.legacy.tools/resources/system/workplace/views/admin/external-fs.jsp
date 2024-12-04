@@ -15,7 +15,7 @@
    </head>
 
    <frameset rows="24,*,24" border="0" frameborder="0" framespacing="0">
-      <frame <%= wp.getFrameSource("admin_head", jsp.link("admin-close.jsp") + "?" + wp.allParamsAsRequest()) %> noresize scrolling="no">
+      <frame <%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getFrameSource("admin_head", jsp.link("admin-close.jsp") + "?" + wp.allParamsAsRequest()))) %> noresize scrolling="no">
 <%  if (!wp.withMenu()) { %>
          <frame <%= wp.getFrameSource("admin_content", jsp.link("admin-main.jsp") + "?" + wp.allParamsAsRequest()) %> noresize scrolling="no">
 <%  } else { %>
