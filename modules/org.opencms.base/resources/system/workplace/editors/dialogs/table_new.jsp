@@ -270,7 +270,7 @@ function resizeWindow() {
 	<td><input type="text" id="TableColor" name="TableColor" size="15" style="width: 140px;" maxlength="7" onkeyup="previewColor('TableColor', 'TableColor');"></td>
 	<td colspan="4"><table border="0" cellpadding="0" cellspacing="0">
 						<tr>
-							<%= wp.button("javascript:openColorWindow();", null, "color_fill", org.opencms.workplace.editors.Messages.GUI_BUTTON_COLOR_0 , buttonStyle) %>
+							<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:openColorWindow();", null, "color_fill", org.opencms.workplace.editors.Messages.GUI_BUTTON_COLOR_0 , buttonStyle))) %>
 						</tr>
 					</table>
 	</td>
