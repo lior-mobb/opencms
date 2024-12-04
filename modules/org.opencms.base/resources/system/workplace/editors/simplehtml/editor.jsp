@@ -104,7 +104,7 @@ function changeElement(elementName, language) {
 // ask user whether he really wants to leave editor without saving
 function confirmExit()
 {
-	if (confirm("<%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_EXIT_0) %>")) {
+	if (confirm("<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_EXIT_0))) %>")) {
 		buttonAction(6);
 	}
 }
@@ -180,7 +180,7 @@ function popupCloseAction(closeObj) {
 <input type="hidden" name="<%= CmsEditor.PARAM_LOADDEFAULT %>" value="<%= wp.getParamLoaddefault() %>">
 <input type="hidden" name="<%= CmsEditor.PARAM_DIRECTEDIT %>" value="<%= wp.getParamDirectedit() %>">
 <input type="hidden" name="<%= CmsDefaultPageEditor.PARAM_OLDELEMENTNAME %>" value="<%= wp.getParamElementname() %>">
-<input type="hidden" name="<%= CmsEditor.PARAM_OLDELEMENTLANGUAGE %>" value="<%= wp.getParamElementlanguage() %>">
+<input type="hidden" name="<%= CmsEditor.PARAM_OLDELEMENTLANGUAGE %>" value="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getParamElementlanguage())) %>">
 <input type="hidden" name="<%= CmsEditor.PARAM_BACKLINK %>" value="<%= wp.getParamBacklink() %>">
 <input type="hidden" name="<%= CmsEditor.PARAM_MODIFIED %>" value="<%= wp.getParamModified() %>">
 	<tr>
@@ -197,7 +197,7 @@ if (elementSelection || elementLanguage) {
 		out.println("<td>" + wp.buildSelectElementLanguage("name=\"" + CmsEditor.PARAM_ELEMENTLANGUAGE + "\" width=\"150\" onchange=\"buttonAction(3);\"") + "</td>");
 		out.println(wp.buttonBarSpacer(2));
 	} else {
-		%><input type="hidden" name="<%= CmsEditor.PARAM_ELEMENTLANGUAGE %>" value="<%= wp.getParamElementlanguage() %>"><%
+		%><input type="hidden" name="<%= CmsEditor.PARAM_ELEMENTLANGUAGE %>" value="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getParamElementlanguage())) %>"><%
 	}
 	if (elementSelection) {
 		out.println("<td>" + wp.buildSelectElementName("name=\"" + CmsDefaultPageEditor.PARAM_ELEMENTNAME + "\" width=\"150\" onchange=\"buttonAction(3);\"") + "</td>");
@@ -231,14 +231,14 @@ if (options.showElement("button.customized", displayOptions)) {%>
 }
 %>
 <%= wp.button("javascript:buttonAction(7);", null, "save_exit", org.opencms.workplace.editors.Messages.GUI_BUTTON_SAVECLOSE_0, buttonStyle) %>
-<%= wp.button("javascript:buttonAction(8);", null, "save",org.opencms.workplace.editors.Messages.GUI_BUTTON_SAVE_0, buttonStyle) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:buttonAction(8);", null, "save",org.opencms.workplace.editors.Messages.GUI_BUTTON_SAVE_0, buttonStyle))) %>
 <%
 if (wp.isHelpEnabled()) {%>
 	<%= wp.buttonBarSeparator(5, 5) %>
-	<%= wp.button("javascript:openOnlineHelp('/editors/simplehtml');", null, "help.png", org.opencms.workplace.editors.Messages.GUI_BUTTON_HELP_0, buttonStyle) %><%
+	<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:openOnlineHelp('/editors/simplehtml');", null, "help.png", org.opencms.workplace.editors.Messages.GUI_BUTTON_HELP_0, buttonStyle))) %><%
 } %>
 <td class="maxwidth">&nbsp;</td>
-<%= wp.button("javascript:confirmExit();", null, "exit", org.opencms.workplace.editors.Messages.GUI_BUTTON_CLOSE_0, buttonStyle) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:confirmExit();", null, "exit", org.opencms.workplace.editors.Messages.GUI_BUTTON_CLOSE_0, buttonStyle))) %>
 <%= wp.buttonBarSpacer(5) %>
 <%= wp.buttonBar(CmsWorkplace.HTML_END) %>
 
@@ -255,7 +255,7 @@ if (wp.isHelpEnabled()) {%>
 
 <form name="ELEMENTS" action="dialogs/elements.jsp" target="DIALOGELEMENT" method="post">
 <input type="hidden" name="<%= CmsEditor.PARAM_TEMPFILE %>" value="<%= wp.getParamTempfile() %>">
-<input type="hidden" name="<%= CmsEditor.PARAM_ELEMENTLANGUAGE %>" value="<%= wp.getParamElementlanguage() %>">
+<input type="hidden" name="<%= CmsEditor.PARAM_ELEMENTLANGUAGE %>" value="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getParamElementlanguage())) %>">
 <input type="hidden" name="<%= CmsDefaultPageEditor.PARAM_ELEMENTNAME %>" value="<%= wp.getParamElementname() %>">
 <input type="hidden" name="<%= CmsDialog.PARAM_RESOURCE %>" value="<%= wp.getParamResource() %>">
 <input type="hidden" name="<%= CmsDialog.PARAM_ISPOPUP %>" value="true">

@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.workplace.*,
 	org.opencms.jsp.*
@@ -11,11 +12,11 @@
 <html>
   <head>
     <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=<%= wp.getEncoding() %>">
-    <title><%= wp.key("label.wptitle") %> <%= wp.getSettings().getUser().getName() %>@<%= request.getServerName() %></title>
+    <title><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key("label.wptitle"))) %> <%= wp.getSettings().getUser().getName() %>@<%= request.getServerName() %></title>
   </head>
   
   <frameset rows="57,*" border="0" frameborder="0" framespacing="0">
-    <frame <%= wp.getFrameSource("tool_title", jsp.link("tool-title.jsp") + "?" + wp.allParamsAsRequest()) %> frameborder="0" border="0" noresize scrolling="no">
+    <frame <%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getFrameSource("tool_title", jsp.link("tool-title.jsp") + "?" + wp.allParamsAsRequest()))) %> frameborder="0" border="0" noresize scrolling="no">
     <frame <%= wp.getFrameSource("tool_content", jsp.link(wp.getAdminTool().getHandler().getLink()) + "?" + wp.allParamsAsRequest()) %> frameborder="0" border="0" framespacing="0" marginheight="7" marginwidth="7" noresize scrolling="auto">
   </frameset>
 </html>
