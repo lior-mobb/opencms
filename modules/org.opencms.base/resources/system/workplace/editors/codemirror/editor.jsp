@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.editors.codemirror.*,
 	org.opencms.jsp.*,
@@ -259,7 +260,7 @@ if (modeName.equals("text/html")) {
 <%= wp.button("javascript:CodeMirror.commands['replace'](editorCodeMirror);", null, "editorsearch", org.opencms.workplace.editors.Messages.GUI_BUTTON_REPLACE_0, buttonStyle) %>
 <%= wp.buttonBarSeparator(5, 5) %>
 <%= wp.button("javascript:buttonAction(4);", null, "undo", org.opencms.workplace.editors.Messages.GUI_BUTTON_UNDO_0, buttonStyle) %>
-<%= wp.button("javascript:buttonAction(5);", null, "redo", org.opencms.workplace.editors.Messages.GUI_BUTTON_REDO_0, buttonStyle) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:buttonAction(5);", null, "redo", org.opencms.workplace.editors.Messages.GUI_BUTTON_REDO_0, buttonStyle))) %>
 <%= wp.buttonBarSeparator(5, 5) %>
 <td>
 	<select name="fontsize" onchange="setEditorFontSize(this.value);" title="<%= wp.key("GUI_EDITOR_SELECT_FONTSIZE_0") %>">
