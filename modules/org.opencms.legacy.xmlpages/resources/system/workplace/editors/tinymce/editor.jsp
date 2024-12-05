@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@page import="java.io.UnsupportedEncodingException,
 	org.opencms.i18n.CmsEncoder,
 	org.opencms.editors.tinymce.*,
@@ -966,7 +967,7 @@ document.write ('<textarea id="tinymce_content" name="tinymce_content" style="he
 
 <form style="display: none;" name="ELEMENTS" action="<%= cms.link("/system/workplace/editors/dialogs/elements.jsp") %>" target="DIALOGELEMENT" method="post">
 <input type="hidden" name="<%= CmsEditor.PARAM_TEMPFILE %>" value="<%= wp.getParamTempfile() %>">
-<input type="hidden" name="<%= CmsEditor.PARAM_ELEMENTLANGUAGE %>" value="<%= wp.getParamElementlanguage() %>">
+<input type="hidden" name="<%= CmsEditor.PARAM_ELEMENTLANGUAGE %>" value="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getParamElementlanguage())) %>">
 <input type="hidden" name="<%= CmsDefaultPageEditor.PARAM_ELEMENTNAME %>" value="<%= wp.getParamElementname() %>">
 <input type="hidden" name="<%= CmsDialog.PARAM_RESOURCE %>" value="<%= wp.getParamResource() %>">
 <input type="hidden" name="ispopup" value="true">
