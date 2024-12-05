@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
     org.opencms.file.CmsPropertyDefinition,
     org.opencms.util.CmsRequestUtil,
@@ -86,7 +87,7 @@
 <td>
 <form style="margin: 0; padding: 0;" name="wpProjectSelect" method="post" action="<%= cms.link(cms.getRequestContext().getUri()) %>">
 <div>
-<%= wp.getProjectSelect("name=\"wpProject\" onchange=\"document.forms.wpProjectSelect.submit()\"", "style=\"width:150px\"") %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getProjectSelect("name=\"wpProject\" onchange=\"document.forms.wpProjectSelect.submit()\"", "style=\"width:150px\""))) %>
 <input type="hidden" name="<%= CmsFrameset.PARAM_WP_FRAME %>" value="head">
 </div>
 </form></td>
