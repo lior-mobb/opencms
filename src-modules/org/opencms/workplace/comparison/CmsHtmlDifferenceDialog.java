@@ -39,6 +39,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.PageContext;
+import org.springframework.web.util.HtmlUtils;
 
 /**
  * Provides a GUI for the file comparison dialog.<p>
@@ -100,7 +101,7 @@ public class CmsHtmlDifferenceDialog extends CmsDifferenceDialog {
         out.println(allParamsAsHidden());
         out.println("</form>");
         out.println("<p>");
-        out.println(getDiffOnlyButtonsHtml());
+        out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(getDiffOnlyButtonsHtml())));
 
         String onClic1 = "javascript:document.forms['diff-form'].textmode.value = '";
         onClic1 += MODE_TEXT;
