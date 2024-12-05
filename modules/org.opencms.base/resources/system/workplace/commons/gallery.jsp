@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@page import="org.opencms.ade.galleries.CmsGalleryActionElement, org.opencms.ade.galleries.shared.I_CmsGalleryProviderConstants, org.opencms.util.CmsStringUtil, org.opencms.i18n.CmsEncoder" %><%@ 
 	taglib prefix="cms" uri="http://www.opencms.org/taglib/cms"%><%@ 
 	taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%><%
@@ -20,7 +21,7 @@
     <% if (gallery.isWidgetMode()){ /* opened as widget include necessary scripts */ %>
     <script>
     	var <%= I_CmsGalleryProviderConstants.KEY_FIELD_ID %> = '<%= CmsStringUtil.escapeJavaScript(request.getParameter(I_CmsGalleryProviderConstants.KEY_FIELD_ID)) %>';
-    	var <%= I_CmsGalleryProviderConstants.KEY_HASH_ID %> = '<%= CmsStringUtil.escapeJavaScript(request.getParameter(I_CmsGalleryProviderConstants.KEY_HASH_ID)) %>';
+    	var <%= I_CmsGalleryProviderConstants.KEY_HASH_ID %> = '<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(CmsStringUtil.escapeJavaScript(request.getParameter(I_CmsGalleryProviderConstants.KEY_HASH_ID)))) %>';
     	function closeDialog(){
     	    window.parent.cmsCloseDialog(<%= I_CmsGalleryProviderConstants.KEY_FIELD_ID %>);
     	}
