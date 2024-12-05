@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.workplace.*,
 	org.opencms.jsp.*"
@@ -28,7 +29,7 @@ if (wp.isReloadRequired()) {
 	</head>
 	<frameset rows="24,*,24" border="0" frameborder="0" framespacing="0">
 	    <frame <%= wp.getFrameSource("head", cms.link("/system/workplace/views/top_head.jsp?wpFrame=head")) %> noresize scrolling="no">
-	    <frame <%= wp.getFrameSource("body", wp.getStartupUri()) %> noresize scrolling="no">
+	    <frame <%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getFrameSource("body", wp.getStartupUri()))) %> noresize scrolling="no">
 	    <frame <%= wp.getFrameSource("foot", cms.link("/system/workplace/views/top_foot.jsp?wpFrame=foot")) %> noresize scrolling="no">
 	</frameset>
 </html>
