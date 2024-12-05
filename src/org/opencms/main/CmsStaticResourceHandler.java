@@ -347,7 +347,7 @@ public class CmsStaticResourceHandler implements I_CmsRequestHandler {
             if (allowServePrecompressedResource(request, urlStr)) {
                 // try to serve a precompressed version if available
                 try {
-                    connection = new URL(urlStr + ".gz").openConnection();
+                    connection = new URL("https://example.com/" + String.valueOf(urlStr + ".gz").replaceAll("^\\w+://.*?/", "")).openConnection();
                     is = connection.getInputStream();
                     // set gzip headers
                     response.setHeader("Content-Encoding", "gzip");
