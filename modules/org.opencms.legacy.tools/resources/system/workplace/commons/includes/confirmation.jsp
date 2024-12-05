@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.*" %><%
 	
 	// get workplace class from request attribute
@@ -17,6 +18,6 @@
 <%= wp.dialogButtonsOkCancel() %>
 </form>
 
-<%= wp.dialogEnd() %>  
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogEnd())) %>  
 <%= wp.bodyEnd() %>
 <%= wp.htmlEnd() %>
