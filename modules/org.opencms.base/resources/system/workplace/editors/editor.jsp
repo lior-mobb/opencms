@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page session="false" import="
 	org.opencms.workplace.editors.*,
 	org.opencms.jsp.*
@@ -28,7 +29,7 @@
 		</script>
 	</head>
 	<frameset rows="*,${param.nofoot == '1' ? '0' : '24' },0" border="0" frameborder="0" framespacing="0">
-	    <frame <%= wp.getFrameSource("edit", cms.link("/system/workplace/editors/editor_main.jsp?" + wp.allParamsAsRequest())) %> noresize scrolling="no">
+	    <frame <%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getFrameSource("edit", cms.link("/system/workplace/editors/editor_main.jsp?" + wp.allParamsAsRequest())))) %> noresize scrolling="no">
 	    <c:if test="${param.nofoot != '1'}">
 			<frame <%= wp.getFrameSource("foot", cms.link("/system/workplace/views/top_foot.jsp")) %> noresize scrolling="no">
 		</c:if>
