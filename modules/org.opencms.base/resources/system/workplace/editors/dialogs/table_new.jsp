@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.*" %><%	
 
 	// initialize the workplace class
@@ -13,7 +14,7 @@
 		disabled = " disabled=\"disabled\" style=\"background-color: /*begin-color Menu*/#f0f0f0/*end-color*/;\"";
 	} 
 	
-%><%= wp.htmlStart(null, dialogTitle) %>
+%><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.htmlStart(null, dialogTitle))) %>
 
 <script >
 
