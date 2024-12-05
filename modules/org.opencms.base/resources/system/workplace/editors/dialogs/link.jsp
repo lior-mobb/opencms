@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.main.*, org.opencms.workplace.*, org.opencms.workplace.explorer.*, org.opencms.util.CmsStringUtil" %><%	
 
 	// initialize the workplace class
@@ -308,7 +309,7 @@ function checkContext(linkUrl, add) {
 
 <%= wp.dialogContentEnd() %>
 
-<%= wp.dialogButtonsOkCancel(null, "onclick=\"window.close();\"") %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogButtonsOkCancel(null, "onclick=\"window.close();\""))) %>
 </form>
 
 <%= wp.dialogEnd() %>
