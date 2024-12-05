@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
     org.opencms.file.CmsPropertyDefinition,
     org.opencms.util.CmsRequestUtil,
@@ -120,7 +121,7 @@ if (wp.showSiteSelector()) {
 
 <%= wp.buttonBarSeparator(5, 0) %>
 <%= wp.button("javascript:doReload()", null, "reload.png", org.opencms.workplace.Messages.GUI_BUTTON_RELOAD_0, buttonStyle) %>
-<%= wp.getPreferencesButton() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getPreferencesButton())) %>
 
 <% 
 if (wp.isSyncEnabled()) {
