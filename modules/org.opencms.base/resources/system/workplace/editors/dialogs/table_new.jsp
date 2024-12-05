@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.*" %><%	
 
 	// initialize the workplace class
@@ -238,7 +239,7 @@ function resizeWindow() {
     <td><input id="TableHeight" type="text" size="5" name="TableHeight" onkeypress="event.returnValue=IsDigit();"></td>	
 </tr>
 <tr>
-	<td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_TITLE_0) %>:</td>
+	<td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_TITLE_0))) %>:</td>
   	<td colspan="2"><input type="text" size="15" style="width: 140px;" name="Caption"<%= disabled %>></td>
 	<td class="maxwidth">&nbsp;</td>
 	<td colspan="2">&nbsp;</td>  	
