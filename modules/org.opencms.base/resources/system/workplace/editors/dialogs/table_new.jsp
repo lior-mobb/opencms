@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.*" %><%	
 
 	// initialize the workplace class
@@ -281,7 +282,7 @@ function resizeWindow() {
 <%= wp.dialogButtonsOkCancel(null, "onclick=\"window.close();\"") %>
 </form>
 
-<%= wp.dialogEnd() %><script >
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogEnd())) %><script >
 <!--
 setTimeout("resizeWindow()", 100);
 //-->
