@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.commons.*" %><%	
 
 	// initialize the workplace class
@@ -239,7 +240,7 @@ function doSet() {
 <input type="hidden" name="<%= wp.PARAM_FRAMENAME %>" value="">
 <%= wp.dialogTabContentStart(wp.getParamTitle(), "id=\"tabcontent\"") %>
 
-<%= wp.buildEditForm() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.buildEditForm())) %>
 
 <%= wp.dialogTabContentEnd() %>
 <%= wp.dialogButtonsOkCancelDefine() %>
