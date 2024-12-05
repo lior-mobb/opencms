@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.util.*,
 	org.opencms.workplace.*,
@@ -97,7 +98,7 @@ function registerElement(elemName, isEnabled) {
 <%= wp.buildLanguageList() %>
 <p><%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_COPYLANGUAGE_WARNING_0) %></p>
 <%= wp.dialogContentEnd() %>
-<%= wp.dialogButtonsOkCancel(null, " onclick=\"window.close()\"") %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogButtonsOkCancel(null, " onclick=\"window.close()\""))) %>
 
 </form>
 
