@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
     org.opencms.file.CmsPropertyDefinition,
     org.opencms.util.CmsRequestUtil,
@@ -101,7 +102,7 @@ if (wp.showSiteSelector()) {
 <td>
 <form style="margin: 0; padding: 0;" name="wpSiteSelect" method="post" action="<%= cms.link(cms.getRequestContext().getUri()) %>">
 <div>
-<%= wp.getSiteSelect("name=\"wpSite\" style=\"width:150px\" onchange=\"document.forms.wpSiteSelect.submit()\"") %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getSiteSelect("name=\"wpSite\" style=\"width:150px\" onchange=\"document.forms.wpSiteSelect.submit()\""))) %>
 <input type="hidden" name="<%= CmsFrameset.PARAM_WP_FRAME %>" value="head">
 </div>
 </form></td>
