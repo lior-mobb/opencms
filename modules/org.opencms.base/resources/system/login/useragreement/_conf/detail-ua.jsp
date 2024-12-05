@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page buffer="none" import="org.opencms.workplace.*" %><%
 
 CmsLoginUserAgreement wp = new CmsLoginUserAgreement(pageContext, request, response);
@@ -40,7 +41,7 @@ default:
 
 <%= wp.dialogWhiteBoxStart() %>
 <div style="height: 450px; overflow: auto;">
-	<%= wp.getConfigurationContentStringValue(wp.NODE_TEXT) %>
+	<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getConfigurationContentStringValue(wp.NODE_TEXT))) %>
 </div>
 <%= wp.dialogWhiteBoxEnd() %>
 
