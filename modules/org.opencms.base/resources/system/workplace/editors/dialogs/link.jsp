@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.main.*, org.opencms.workplace.*, org.opencms.workplace.explorer.*, org.opencms.util.CmsStringUtil" %><%	
 
 	// initialize the workplace class
@@ -86,7 +87,7 @@ function init() {
 
 	if (linkEditorStyleInputs) {
 		var anchorStyle = "<%= CmsStringUtil.escapeJavaScript(request.getParameter("style")) %>";
-		var anchorClass = "<%= CmsStringUtil.escapeJavaScript(request.getParameter("class")) %>";
+		var anchorClass = "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(CmsStringUtil.escapeJavaScript(request.getParameter("class")))) %>";
 		if (anchorStyle != "null") {
 			document.forms["NEU"].elements["linkstyle"].value = anchorStyle;
 		}
