@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.commons.*" %><%	
 
 	// initialize the workplace class
@@ -97,7 +98,7 @@ function checkName() {
 
 <%= wp.dialogContentEnd() %>
 <% wp.setParamAction(wp.DIALOG_SHOW_DEFAULT); %>
-<%= wp.dialogButtonsOkCancel("disabled=\"disabled\"", "onclick=\"location.href='" + wp.getDialogUri() + "?" + wp.paramsAsRequest() + "';\"") %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogButtonsOkCancel("disabled=\"disabled\"", "onclick=\"location.href='" + wp.getDialogUri() + "?" + wp.paramsAsRequest() + "';\""))) %>
 </form>
 
 <%= wp.dialogEnd() %>
