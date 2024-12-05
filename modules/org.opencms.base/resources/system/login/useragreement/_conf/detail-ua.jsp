@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page buffer="none" import="org.opencms.workplace.*" %><%
 
 CmsLoginUserAgreement wp = new CmsLoginUserAgreement(pageContext, request, response);
@@ -49,7 +50,7 @@ default:
 
 </form>
 
-<%= wp.dialogEnd() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogEnd())) %>
 <%= wp.bodyEnd() %>
 <%= wp.htmlEnd() %>
 <%
