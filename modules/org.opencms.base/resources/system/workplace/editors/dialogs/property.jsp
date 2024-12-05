@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.workplace.*,
 	org.opencms.workplace.editors.*,
@@ -206,7 +207,7 @@ function doSet() {
 <%= wp.dialogButtonsOkCancelAdvanced(null, null, "value=\""+wp.key("button.advanced")+"\" onclick=\"submitAdvanced();\"") %>
 </form>
 
-<%= wp.dialogEnd() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogEnd())) %>
 
 <script >
 <!--
