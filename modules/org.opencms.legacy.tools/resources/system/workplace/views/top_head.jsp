@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
     org.opencms.file.CmsPropertyDefinition,
     org.opencms.util.CmsRequestUtil,
@@ -127,7 +128,7 @@ if (wp.isSyncEnabled()) {
 	out.println(wp.button("../commons/synchronize.jsp", "body", "folder_refresh.png", org.opencms.workplace.Messages.GUI_BUTTON_SYNCFOLDER_0, buttonStyle));
 }
 if (wp.isHelpEnabled()) {
-	out.println(wp.button("javascript:openOnlineHelp();", null, "help.png", org.opencms.workplace.Messages.GUI_BUTTON_HELP_0, buttonStyle));
+	out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:openOnlineHelp();", null, "help.png", org.opencms.workplace.Messages.GUI_BUTTON_HELP_0, buttonStyle))));
 }        
 %>
        
