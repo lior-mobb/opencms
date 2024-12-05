@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.editors.codemirror.*,
 	org.opencms.jsp.*,
@@ -312,7 +313,7 @@ if (modeName.equals("text/html")) {
 <%
 if (wp.isHelpEnabled()) {%>
 	<%= wp.buttonBarSeparator(5, 5) %>
-	<%= wp.button("javascript:openOnlineHelp('/editors');", null, "help.png", org.opencms.workplace.editors.Messages.GUI_BUTTON_HELP_0, buttonStyle) %><%
+	<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:openOnlineHelp('/editors');", null, "help.png", org.opencms.workplace.editors.Messages.GUI_BUTTON_HELP_0, buttonStyle))) %><%
 } %>
 <td class="maxwidth">&nbsp;</td>
 <%= wp.button("javascript:confirmExit();", null, "exit", org.opencms.workplace.editors.Messages.GUI_BUTTON_CLOSE_0, buttonStyle) %>
