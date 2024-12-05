@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	
 	org.opencms.workplace.*,
@@ -39,7 +40,7 @@ default:
 
 <%= wp.bodyStart("dialog", "") %>
 
-<%= wp.dialogStart() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogStart())) %>
 <%= wp.dialogContentStart(wp.getParamTitle()) %>
 
 <form name="main" action="<%= wp.getDialogUri() %>" method="post" class="nomargin" onsubmit="return submitAction('<%= CmsDialog.DIALOG_OK %>', null, 'main');">
