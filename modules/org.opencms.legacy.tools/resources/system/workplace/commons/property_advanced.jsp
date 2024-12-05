@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.commons.*" %><%	
 
 	// initialize the workplace class
@@ -245,7 +246,7 @@ function doSet() {
 <%= wp.dialogButtonsOkCancelDefine() %>
 </form>
 
-<%= wp.dialogEnd() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogEnd())) %>
 <%
 if ("true".equals(wp.getParamIsPopup())) {
 	%><script >
