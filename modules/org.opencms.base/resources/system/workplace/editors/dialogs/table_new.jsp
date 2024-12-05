@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.*" %><%	
 
 	// initialize the workplace class
@@ -244,7 +245,7 @@ function resizeWindow() {
 	<td colspan="2">&nbsp;</td>  	
 </tr>
 <tr>
-	<td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNMENT_0)%>:</td>
+	<td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNMENT_0)))%>:</td>
 	<td><select id="TableAlignment" name="TableAlignment" size="1" style="width: 140px;"<%= disabled %>>
 			<option value="" selected="selected"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_TABLE_NOTSPECIFIED_0) %></option>
       		<option value="left"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_ALIGNLEFT_0)%></option>
