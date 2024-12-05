@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.CmsDialog, 
                  org.opencms.workplace.commons.CmsDeletedResources,
                  org.opencms.workplace.commons.Messages,
@@ -39,7 +40,7 @@ default:
 <%= wp.buildAjaxResultContainer(wp.key(Messages.GUI_DELETED_RESOURCES_LIST_TITLE_0)) %>
 <%= wp.buildOptions() %>
 <%= wp.dialogContentEnd() %>
-<%= wp.dialogButtons() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogButtons())) %>
 </form>
 <%= wp.dialogEnd() %>
 <%= wp.bodyEnd() %>
