@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page
 	import="org.opencms.workplace.CmsDialog,
 	org.opencms.workplace.commons.*"%>
@@ -52,7 +53,7 @@ case CmsDialog.ACTION_LOCKS_CONFIRMED:
 <%= wp.paramsAsHidden() %> <input type="hidden"
 	name="<%= CmsDialog.PARAM_FRAMENAME %>" value=""> <%= wp.buildDialogForm() %>
 
-<%= wp.dialogContentEnd() %> <%= wp.dialogButtonsOkCancel() %> 
+<%= wp.dialogContentEnd() %> <%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogButtonsOkCancel())) %> 
 </form>
 
 <%= wp.dialogEnd() %>
