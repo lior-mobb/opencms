@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page session="false" import="
 	org.opencms.workplace.editors.*,
 	org.opencms.jsp.*
@@ -16,7 +17,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=<%= wp.getEncoding() %>">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>(<%= wp.getSettings().getUser().getName() %>) - <%= wp.getParamEditorTitle() %></title>
+		<title>(<%= wp.getSettings().getUser().getName() %>) - <%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getParamEditorTitle())) %></title>
 		<script>
 		<!--
 			// change window name when opening editor in direct edit mode 
