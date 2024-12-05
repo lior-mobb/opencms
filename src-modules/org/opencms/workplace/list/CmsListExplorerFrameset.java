@@ -59,6 +59,7 @@ import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.PageContext;
 
 import org.apache.commons.logging.Log;
+import org.springframework.web.util.HtmlUtils;
 
 /**
  * Explorer dialog for the project files view.<p>
@@ -110,7 +111,7 @@ public class CmsListExplorerFrameset extends CmsExplorerDialog {
         if (CmsStringUtil.isEmptyOrWhitespaceOnly(titleUri)) {
             titleUri = CmsToolManager.ADMINVIEW_ROOT_LOCATION + "/list-title.jsp";
         }
-        String titleSrc = getFrameSource("tool_title", getJsp().link(titleUri + "?" + params));
+        String titleSrc = getFrameSource("tool_title", getJsp().link(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(String.valueOf(titleUri))) + "?" + params));
         String contentSrc = getFrameSource(
             "tool_content",
             getJsp().link(CmsToolManager.ADMINVIEW_ROOT_LOCATION + "/list-explorer.jsp") + "?" + params);
