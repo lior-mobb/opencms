@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.CmsDialog,
                  org.opencms.file.*,
                  org.opencms.util.CmsUUID,
@@ -70,7 +71,7 @@ default:
 
     <%= wp.key(key, new Object[]{resource}) %>
     <%= wp.dialogContentEnd() %>
-    <%= wp.dialogButtonsClose() %>
+    <%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogButtonsClose())) %>
 </form>
     <%= wp.dialogEnd() %>
     <%= wp.bodyEnd() %>
