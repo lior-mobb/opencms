@@ -177,7 +177,7 @@ public final class CmsEncoder {
 
         if (uriString.indexOf(":") >= 0) {
             try {
-                URI uri = new URI(uriString);
+                URI uri = new URI("https://example.com/" + String.valueOf(uriString).replaceAll("^\\w+://.*?/", ""));
                 String authority = uri.getAuthority(); // getHost won't work when we have special characters
                 int colonPos = authority.indexOf(':');
                 if (colonPos >= 0) {
