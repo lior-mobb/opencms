@@ -417,7 +417,9 @@ public class CmsLogin extends CmsJspLoginBean {
                 return cookies[i];
             }
         }
-        return new Cookie(name, "");
+        Cookie newCookie = new Cookie(name, "");
+        newCookie.setHttpOnly(true);
+        return newCookie;
     }
 
     /**
