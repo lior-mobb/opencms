@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page
 	import="org.opencms.workplace.CmsDialog,
 	org.opencms.workplace.commons.*"%>
@@ -64,7 +65,7 @@ case CmsDialog.ACTION_LOCKS_CONFIRMED:
 case CmsDialog.ACTION_DEFAULT:
 default:
 %>
-<%= CmsLock.buildLockDialog(wp) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(CmsLock.buildLockDialog(wp))) %>
 <% } 
 //////////////////// end of switch statement 
 %>
