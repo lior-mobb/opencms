@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@page import="org.opencms.ade.galleries.CmsGalleryActionElement, org.opencms.ade.galleries.shared.I_CmsGalleryProviderConstants, org.opencms.util.CmsStringUtil, org.opencms.i18n.CmsEncoder" %><%@ 
 	taglib prefix="cms" uri="http://www.opencms.org/taglib/cms"%><%@ 
 	taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%><%
@@ -5,7 +6,7 @@
 %><!DOCTYPE html>
 <html>
   <head>
-  	<%= gallery.exportAll() %>
+  	<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(gallery.exportAll())) %>
   	<title><%= gallery.getTitle() %></title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   	<c:if test="${!empty param.integrator}">
