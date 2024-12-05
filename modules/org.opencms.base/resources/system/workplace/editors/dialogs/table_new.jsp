@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.*" %><%	
 
 	// initialize the workplace class
@@ -232,7 +233,7 @@ function resizeWindow() {
 	<td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_HEIGHT_0) %>:</td>
 	<td><select name="TableHeightMode" id="TableHeightMode" size="1" style="width: 150px;" onchange="checkField('TableHeightMode', 'TableHeight');"<%= disabled %>>
   			<option value="" selected="selected"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_TABLE_NOTSPECIFIED_0) %></option>
-      		<option value="%"> <%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_INPERCENT_0)%>
+      		<option value="%"> <%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_INPERCENT_0)))%>
       		<option value="pixel"> <%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_INPIXEL_0) %>
       	</select></td> 
     <td><input id="TableHeight" type="text" size="5" name="TableHeight" onkeypress="event.returnValue=IsDigit();"></td>	
