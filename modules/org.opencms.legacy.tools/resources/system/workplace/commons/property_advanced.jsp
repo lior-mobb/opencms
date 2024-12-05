@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.commons.*" %><%	
 
 	// initialize the workplace class
@@ -74,7 +75,7 @@ function checkName() {
 </script>
 <%= wp.bodyStart("dialog") %>
 
-<%= wp.dialogStart() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogStart())) %>
 <%= wp.dialogContentStart(wp.getParamTitle()) %>
 
 <form name="main" action="<%= wp.getDialogUri() %>" method="post" class="nomargin" onSubmit="return submitAction('<%= wp.DIALOG_OK %>', null, 'main');">
