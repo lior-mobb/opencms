@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.*" %><%	
 
 	// initialize the workplace class
@@ -255,7 +256,7 @@ function resizeWindow() {
     <td class="maxwidth">&nbsp;</td>
 	<td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_PADDING_0) %>: </td>
   	<td style="white-space: nowrap;" colspan="2"><input id="CellPadding" type="text" size="5" name="CellPadding" onkeypress="event.returnValue=IsDigit();">
-  	<%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_PADDINGINFO_0)%></td>
+  	<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_PADDINGINFO_0)))%></td>
 </tr>
 <tr>
 	<td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_BORDER_0) %>:</td>
