@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@page import="java.io.UnsupportedEncodingException,
 	org.opencms.i18n.CmsEncoder,
 	org.opencms.editors.tinymce.*,
@@ -940,7 +941,7 @@ if (options.showElement("option.properties", displayOptions)) {
 	out.println(wp.button("javascript:buttonAction(5);", null, "properties", org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_PROPERTIES_BUTTON_0, buttonStyle));
 }
 if (options.showElement("option.cleanup", displayOptions)) {
-	out.println(wp.button("javascript:buttonAction(13);", null, "cleanup", org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_CLEANUP_BUTTON_0, buttonStyle));
+	out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:buttonAction(13);", null, "cleanup", org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_CLEANUP_BUTTON_0, buttonStyle))));
 }
 %>
 <td class="maxwidth">&nbsp;</td>
