@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.commons.*" %><%	
 
 	// initialize the workplace class
@@ -216,7 +217,7 @@ function doSet() {
 <%= wp.paramsAsHidden() %>
 <input type="hidden" name="<%= wp.PARAM_FRAMENAME %>" value="">
 
-<%= wp.buildEditForm() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.buildEditForm())) %>
 
 <%= wp.dialogContentEnd() %>
 
