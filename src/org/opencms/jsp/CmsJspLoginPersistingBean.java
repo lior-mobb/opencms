@@ -139,6 +139,7 @@ public class CmsJspLoginPersistingBean extends CmsJspLoginBean {
             CmsPersistentLoginTokenHandler tokenHandler = new CmsPersistentLoginTokenHandler();
             try {
                 Cookie cookie = new Cookie(CmsPersistentLoginAuthorizationHandler.COOKIE_NAME, "");
+                cookie.setSecure(true);
                 cookie.setMaxAge(0);
                 cookie.setPath(getCookiePath(true));
                 getResponse().addCookie(cookie);
