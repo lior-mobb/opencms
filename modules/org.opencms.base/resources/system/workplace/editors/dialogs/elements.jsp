@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.util.*,
 	org.opencms.workplace.*,
@@ -100,7 +101,7 @@ function registerElement(elemName, isEnabled) {
 <%= wp.paramsAsHidden() %>
 <input type="hidden" name="<%= CmsDialog.PARAM_FRAMENAME %>" value="">
 
-<%= wp.buildElementList() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.buildElementList())) %>
 
 <%= wp.dialogContentEnd() %>
 <%= wp.dialogButtonsOk(" onclick=\"confirmDelete();\"") %>
