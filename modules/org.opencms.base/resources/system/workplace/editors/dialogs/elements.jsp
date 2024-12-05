@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.util.*,
 	org.opencms.workplace.*,
@@ -103,7 +104,7 @@ function registerElement(elemName, isEnabled) {
 <%= wp.buildElementList() %>
 
 <%= wp.dialogContentEnd() %>
-<%= wp.dialogButtonsOk(" onclick=\"confirmDelete();\"") %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogButtonsOk(" onclick=\"confirmDelete();\""))) %>
 
 </form>
 
