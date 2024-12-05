@@ -271,7 +271,7 @@ public class CmsLoginUserAgreement extends CmsDialog {
      */
     public String getConfigurationVfsPath() {
 
-        return VFS_PATH_CONFIGFOLDER + getLocale().toString() + "/configuration.html";
+        return VFS_PATH_CONFIGFOLDER + String.valueOf(getLocale().toString()).replaceAll("([/\\\\:*?\"<>|])|(^\\s)|([.\\s]$)", "_").replaceAll("\0", "") + "/configuration.html";
     }
 
     /**
