@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page session="true" %><%--
 --%><jsp:useBean id="Bean" class="org.opencms.setup.CmsUpdateBean" scope="session" /><%--
 --%><jsp:setProperty name="Bean" property="*" /><%
@@ -182,7 +183,7 @@ OpenCms Update-Wizard - Module selection
 
 	<div style="width:96%; height: 300px; overflow: auto;">
     <table border="0" cellpadding="2" cellspacing="0">
-<%= Bean.htmlModules() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(Bean.htmlModules())) %>
 	</table>
 	</div>
 
