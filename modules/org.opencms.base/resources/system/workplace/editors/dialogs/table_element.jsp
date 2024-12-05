@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.*" %><%	
 
 	// initialize the workplace class
@@ -210,7 +211,7 @@ function checkField(elementId, checkFieldId) {
 
 <%= wp.bodyStart("dialog", "onload=\"init();\"") %>
 
-<%= wp.dialogStart() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogStart())) %>
 <%= wp.dialogContentStart(dialogTitle) %>
 <form name="main" class="nomargin" onsubmit="checkValues(); return false;">
 
