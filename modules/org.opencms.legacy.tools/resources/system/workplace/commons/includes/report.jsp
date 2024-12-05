@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.workplace.CmsReport,
 	org.opencms.workplace.CmsDialog,
@@ -528,7 +529,7 @@ function submitActionRefresh(para1, para2, para3) {
 </script>
 
     <%= wp.bodyStart(null, "onLoad=\"start();\"") /*"dialog"*/%>
-    <%= wp.dialogStart() %>
+    <%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogStart())) %>
 
 <form name="main" action="<%= wp.getDialogRealUri() %>" method="post" class="nomargin" onsubmit="return submitActionRefresh('<%= CmsDialog.DIALOG_OK %>', null, 'main');">
 
