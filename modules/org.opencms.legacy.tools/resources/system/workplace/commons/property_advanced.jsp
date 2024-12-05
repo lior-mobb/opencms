@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.commons.*" %><%	
 
 	// initialize the workplace class
@@ -242,7 +243,7 @@ function doSet() {
 <%= wp.buildEditForm() %>
 
 <%= wp.dialogTabContentEnd() %>
-<%= wp.dialogButtonsOkCancelDefine() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogButtonsOkCancelDefine())) %>
 </form>
 
 <%= wp.dialogEnd() %>
