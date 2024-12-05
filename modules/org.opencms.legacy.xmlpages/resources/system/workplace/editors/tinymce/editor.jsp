@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@page import="java.io.UnsupportedEncodingException,
 	org.opencms.i18n.CmsEncoder,
 	org.opencms.editors.tinymce.*,
@@ -944,7 +945,7 @@ if (options.showElement("option.cleanup", displayOptions)) {
 }
 %>
 <td class="maxwidth">&nbsp;</td>
-<%= wp.button("javascript:buttonAction(2);", null, "preview", org.opencms.workplace.editors.Messages.GUI_BUTTON_PREVIEW_0, buttonStyle) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.button("javascript:buttonAction(2);", null, "preview", org.opencms.workplace.editors.Messages.GUI_BUTTON_PREVIEW_0, buttonStyle))) %>
 <%= wp.buttonBarSpacer(5) %>
 <%= wp.buttonBar(CmsWorkplace.HTML_END) %>
 
