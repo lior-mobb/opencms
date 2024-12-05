@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.main.*, org.opencms.workplace.*, org.opencms.workplace.explorer.*, org.opencms.util.CmsStringUtil" %><%	
 
 	// initialize the workplace class
@@ -79,7 +80,7 @@ function init() {
 	if (anchor != "null") {
 		document.forms["NEU"].elements["neulink"].value = checkContext(decodeURIComponent(anchor), false);
 	}
-	var title= "<%= CmsStringUtil.escapeJavaScript(request.getParameter("title")) %>";
+	var title= "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(CmsStringUtil.escapeJavaScript(request.getParameter("title")))) %>";
 	if (title != "null") {
 		document.forms["NEU"].elements["linktitle"].value = title.trim();
 	}
