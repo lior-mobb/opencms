@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.*" %><%	
 
 	// initialize the workplace class
@@ -236,6 +237,6 @@ function insertChar(thechar) {
 <%= wp.dialogContentEnd() %>
 <%= wp.dialogButtonsClose("onclick=\"window.close();\"") %>
 
-<%= wp.dialogEnd() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogEnd())) %>
 <%= wp.bodyEnd() %>
 <%= wp.htmlEnd() %>
