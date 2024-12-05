@@ -2710,7 +2710,7 @@ public class CmsContainerpageService extends CmsGwtService implements I_CmsConta
                             cms,
                             page,
                             detailContent.getRootPath(),
-                            "" + locale));
+                            "" + String.valueOf(locale).replaceAll("([/\\\\:*?\"<>|])|(^\\s)|([.\\s]$)", "_").replaceAll("\0", "")));
                 } catch (Exception e) {
                     LOG.error(e.getLocalizedMessage(), e);
                 }
