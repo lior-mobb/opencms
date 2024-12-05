@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.workplace.CmsWorkplace,
 	org.opencms.workplace.administration.CmsAdminMenu,
@@ -33,7 +34,7 @@
     }
     function checkSize() {
 	  if (top.vr.adminResizeCount < 1) {
-        var req = 'admin-fs.jsp?<%=req %>scroll=';
+        var req = 'admin-fs.jsp?<%=HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(req)) %>scroll=';
         if (wHeight() <= pHeight() && wWidth() < 213) {
 	  	  top.vr.adminResizeCount++;
     	  parent.location.href = req + 'true';
