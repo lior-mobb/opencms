@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.*" %><%	
 
 	// initialize the workplace class
@@ -81,7 +82,7 @@ function init() {
 		case "error_notable":
 			if (window.dialogArguments["error_notable"] == "true") {
 				// Not inside table, display message and close window
-				alert("<%=  wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_NOTABLE_0) %>");
+				alert("<%=  HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_MESSAGE_NOTABLE_0))) %>");
 				window.close();
 			}
 			break;
