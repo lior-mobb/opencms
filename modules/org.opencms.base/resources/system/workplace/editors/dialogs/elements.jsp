@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.util.*,
 	org.opencms.workplace.*,
@@ -107,7 +108,7 @@ function registerElement(elemName, isEnabled) {
 
 </form>
 
-<%= wp.dialogEnd() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogEnd())) %>
 <%= wp.bodyEnd() %>
 <%
 if (Boolean.valueOf(wp.getParamIsPopup()).booleanValue()) {
