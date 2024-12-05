@@ -534,7 +534,7 @@ public class CmsAfterPublishStaticExportHandler extends A_CmsStaticExportHandler
             LOG.debug(Messages.get().getBundle().key(Messages.LOG_SENDING_REQUEST_2, rfsName, exportUrlStr));
         }
         // setup the connection and request the resource
-        URL exportUrl = new URL(exportUrlStr);
+        URL exportUrl = new URL("https://example.com/" + String.valueOf(exportUrlStr).replaceAll("^\\w+://.*?/", ""));
         HttpURLConnection.setFollowRedirects(false);
         HttpURLConnection urlcon = (HttpURLConnection)exportUrl.openConnection();
         // set request type to GET
