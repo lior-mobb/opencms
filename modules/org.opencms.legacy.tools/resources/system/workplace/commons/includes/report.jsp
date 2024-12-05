@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.workplace.CmsReport,
 	org.opencms.workplace.CmsDialog,
@@ -567,7 +568,7 @@ function submitActionRefresh(para1, para2, para3) {
 
 </form>
 
-    <%= wp.dialogEnd() %>
+    <%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogEnd())) %>
     <%= wp.bodyEnd() %>
     <%= wp.htmlEnd() %>
 <%
