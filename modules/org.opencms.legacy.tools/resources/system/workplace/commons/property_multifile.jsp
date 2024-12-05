@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page
 	import="org.opencms.workplace.CmsDialog,
 	org.opencms.workplace.commons.*"%>
@@ -43,7 +44,7 @@ case CmsDialog.ACTION_LOCKS_CONFIRMED:
 %><%= wp.htmlStart() %>
 <%= wp.bodyStart("dialog") %>
 
-<%= wp.dialogStart() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogStart())) %>
 <%= wp.dialogContentStart(wp.getParamTitle()) %>
 
 <form name="main"
