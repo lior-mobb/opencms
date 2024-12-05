@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.*" %><%	
 
 	// initialize the workplace class
@@ -266,7 +267,7 @@ function resizeWindow() {
   	<%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_SPACINGINFO_0) %></td>
 </tr>
 <tr>
-	<td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_COLOR_0) %></td>
+	<td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_COLOR_0))) %></td>
 	<td><input type="text" id="TableColor" name="TableColor" size="15" style="width: 140px;" maxlength="7" onkeyup="previewColor('TableColor', 'TableColor');"></td>
 	<td colspan="4"><table border="0" cellpadding="0" cellspacing="0">
 						<tr>
