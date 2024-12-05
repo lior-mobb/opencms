@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	
 	org.opencms.workplace.*,
@@ -49,7 +50,7 @@ default:
 <%= wp.key(org.opencms.workplace.commons.Messages.GUI_SYNCHRONIZATION_INFO_0) %>
 
 <%= wp.dialogContentEnd() %>
-<%= wp.dialogButtonsOkCancel() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogButtonsOkCancel())) %>
 
 </form>
 
