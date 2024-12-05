@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.main.*, org.opencms.workplace.*, org.opencms.workplace.explorer.*, org.opencms.util.CmsStringUtil" %><%	
 
 	// initialize the workplace class
@@ -270,7 +271,7 @@ function checkContext(linkUrl, add) {
                     <td class="maxwidth">
                         <input type="text" name="neulink"  class="maxwidth" value="" onchange="checkLinkUrl();" />
                     </td>
-                    <td><a href="javascript:openTreeWin('NEU', 'neulink', document);"><img src="<%= CmsWorkplace.getSkinUri() %>filetypes/folder.gif" border="0" alt="<%= wp.key(org.opencms.workplace.editors.Messages.GUI_LABEL_SELECTFOLDER_0)%>"></a></td>
+                    <td><a href="javascript:openTreeWin('NEU', 'neulink', document);"><img src="<%= CmsWorkplace.getSkinUri() %>filetypes/folder.gif" border="0" alt="<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_LABEL_SELECTFOLDER_0)))%>"></a></td>
                 </tr>
                 <script>
                 <!--
