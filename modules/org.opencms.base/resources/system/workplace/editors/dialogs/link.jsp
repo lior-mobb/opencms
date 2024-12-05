@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.main.*, org.opencms.workplace.*, org.opencms.workplace.explorer.*, org.opencms.util.CmsStringUtil" %><%	
 
 	// initialize the workplace class
@@ -96,7 +97,7 @@ function init() {
 	}
 	
 	document.forms["NEU"].elements["targetname"].value = "";
-	var anchorTarget = "<%= CmsStringUtil.escapeJavaScript(request.getParameter("target")) %>";
+	var anchorTarget = "<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(CmsStringUtil.escapeJavaScript(request.getParameter("target")))) %>";
 	if (anchorTarget != "null") {
 		if ((anchorTarget == "_self") || (anchorTarget == "") || (anchorTarget == null)) {
     	    document.forms["NEU"].elements["linktarget"].selectedIndex = 0;
