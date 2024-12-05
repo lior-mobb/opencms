@@ -39,6 +39,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.PageContext;
+import org.springframework.web.util.HtmlUtils;
 
 /**
  * Provides a GUI for the file comparison dialog.<p>
@@ -131,7 +132,7 @@ public class CmsHtmlDifferenceDialog extends CmsDifferenceDialog {
             }
             String diff = Diff.diffAsHtml(originalSource, copySource, conf);
             if (CmsStringUtil.isNotEmpty(diff)) {
-                out.println(diff);
+                out.println(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(diff)));
             } else {
                 String htmlDiff = Diff.diffAsHtml(getOriginalSource(), getCopySource(), conf);
                 if (CmsStringUtil.isNotEmpty(htmlDiff)) {
