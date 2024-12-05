@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.workplace.*,
 	org.opencms.jsp.*,
@@ -33,7 +34,7 @@ span.norm {
 	border-color: <%= customFoot.getBackgroundColor() %>;
 }
 </style>
-<%= wp.getBroadcastMessage() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getBroadcastMessage())) %>
 </head>
 
 <body class="buttons-foot" unselectable="on" onload="setTimeout('doReloadFoot()', 300000);">
