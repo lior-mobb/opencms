@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.commons.*" %><%	
 
 	// initialize the workplace class
@@ -225,7 +226,7 @@ function definePropertyForm() {
 // sets the form values, this function has to be called delayed because of display issues with large property values
 // use the setTimeout function in the onload attribute in the page <body> tag to set the form values
 function doSet() {
-<%= wp.buildSetFormValues() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.buildSetFormValues())) %>
 }
 
 //-->
