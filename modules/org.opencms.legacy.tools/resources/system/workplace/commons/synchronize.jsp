@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	
 	org.opencms.workplace.*,
@@ -53,7 +54,7 @@ default:
 
 </form>
 
-<%= wp.dialogEnd() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogEnd())) %>
 <%= wp.bodyEnd() %>
 <%= wp.htmlEnd() %>
 <%
