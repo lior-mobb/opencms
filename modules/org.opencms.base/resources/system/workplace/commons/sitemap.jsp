@@ -1,9 +1,10 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.ade.sitemap.CmsSitemapActionElement,org.opencms.ui.shared.CmsVaadinConstants" contentType="text/html" %><%
   CmsSitemapActionElement jsp = new CmsSitemapActionElement(pageContext, request, response);
 %><!DOCTYPE html>
 <html style="height:100%;">
   <head>
-  	<%= jsp.exportAll() %>
+  	<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(jsp.exportAll())) %>
     <title><%= jsp.getTitle() %></title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   </head>
