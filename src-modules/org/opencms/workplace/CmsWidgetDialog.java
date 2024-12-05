@@ -58,6 +58,7 @@ import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.PageContext;
 
 import org.apache.commons.logging.Log;
+import org.springframework.web.util.HtmlUtils;
 
 /**
  * Base class for dialogs that use the OpenCms widgets without XML content.<p>
@@ -767,7 +768,7 @@ public abstract class CmsWidgetDialog extends CmsDialog implements I_CmsWidgetDi
                 // ACTION: show dialog (default)
                 setParamAction(DIALOG_SAVE);
                 JspWriter out = getJsp().getJspContext().getOut();
-                out.print(defaultActionHtml());
+                out.print(HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(defaultActionHtml())));
         }
     }
 
