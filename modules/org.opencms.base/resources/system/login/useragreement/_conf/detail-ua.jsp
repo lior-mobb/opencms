@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page buffer="none" import="org.opencms.workplace.*" %><%
 
 CmsLoginUserAgreement wp = new CmsLoginUserAgreement(pageContext, request, response);
@@ -31,7 +32,7 @@ default:
 %><%= wp.htmlStart() %>
 <%= wp.bodyStart("dialog") %>
 
-<%= wp.dialogStart() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogStart())) %>
 <%= wp.dialogContentStart(wp.getParamTitle()) %>
 
 <form name="main" action="<%= wp.getDialogUri() %>" method="post" class="nomargin" onsubmit="return submitAction('<%= CmsDialog.DIALOG_OK %>', null, 'main');">
