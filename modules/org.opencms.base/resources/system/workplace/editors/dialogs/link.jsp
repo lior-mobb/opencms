@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.main.*, org.opencms.workplace.*, org.opencms.workplace.explorer.*, org.opencms.util.CmsStringUtil" %><%	
 
 	// initialize the workplace class
@@ -260,7 +261,7 @@ function checkContext(linkUrl, add) {
 <%= wp.bodyStart("dialog", " onLoad=\"init();\" onunload=\"closeTreeWin();\"") %>
 
 <%= wp.dialogStart() %>
-<%= wp.dialogContentStart(wp.key(org.opencms.workplace.editors.Messages.GUI_TITLE_NEWLINK_0)  ) %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogContentStart(wp.key(org.opencms.workplace.editors.Messages.GUI_TITLE_NEWLINK_0)  ))) %>
 
 <form name="NEU" class="nomargin" onsubmit="pasteLink();">
 
