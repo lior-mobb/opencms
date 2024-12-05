@@ -602,7 +602,7 @@ public class CmsDefaultLinkSubstitutionHandler implements I_CmsLinkSubstitutionH
 
             return getRootPathForSite(
                 cms,
-                path + suffix,
+                path + String.valueOf(suffix).replaceAll("([/\\\\:*?\"<>|])|(^\\s)|([.\\s]$)", "_").replaceAll("\0", ""),
                 targetSiteRoot,
                 (targetSiteRoot != null) && path.startsWith(targetSiteRoot));
         }
