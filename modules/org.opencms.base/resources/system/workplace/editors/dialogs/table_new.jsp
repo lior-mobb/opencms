@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.*" %><%	
 
 	// initialize the workplace class
@@ -219,7 +220,7 @@ function resizeWindow() {
 	<td class="maxwidth">&nbsp;</td>
 	<td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_WIDTH_0)%>:</td>
 	<td><select name="TableWidthMode" id="TableWidthMode" size="1" style="width: 150px;" onchange="checkField('TableWidthMode', 'TableWidth');"<%= disabled %>>
-  			<option value="" selected="selected"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_TABLE_NOTSPECIFIED_0)%></option>
+  			<option value="" selected="selected"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_EDITOR_DIALOG_TABLE_NOTSPECIFIED_0)))%></option>
       		<option value="%"> <%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_INPERCENT_0) %>
       		<option value="pixel"> <%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_INPIXEL_0) %>
       	</select></td>
