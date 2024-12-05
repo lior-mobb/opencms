@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.*" %><%	
 
 	// initialize the workplace class
@@ -65,7 +66,7 @@ function insertChar(thechar) {
 
 <%= wp.bodyStart("dialog") %>
 
-<%= wp.dialogStart() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogStart())) %>
 <%= wp.dialogContentStart(dialogTitle) %>
 
 <table border="0" cellspacing="0"  cellpadding="0" class="chartable">
