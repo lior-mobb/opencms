@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.workplace.CmsReport,
 	org.opencms.workplace.CmsDialog,
@@ -550,7 +551,7 @@ function submitActionRefresh(para1, para2, para3) {
     <%= wp.dialogButtonsContinue("id=\"contok\" onclick=\"updateWin.continueReport();\"", "id=\"contcancel\"", "id=\"contdetails\"") %>
   </td></tr>
   <tr><td width="100%" id="buttonrowok" class="hide">
-    <%= wp.dialogButtonsOkCancelDetails("id=\"okclose\"", "id=\"okcancel\"", "id=\"details\"") %>
+    <%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogButtonsOkCancelDetails("id=\"okclose\"", "id=\"okcancel\"", "id=\"details\""))) %>
   </td></tr>
   <tr><td>
     <iframe src="<%= wp.getDialogRealUri() %>?<%= CmsToolDialog.PARAM_STYLE%>=<%=wp.getParamStyle()%>&<%= CmsDialog.PARAM_ACTION %>=<%= CmsDialog.REPORT_UPDATE %>&<%= 
