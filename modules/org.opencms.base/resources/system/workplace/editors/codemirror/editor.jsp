@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.editors.codemirror.*,
 	org.opencms.jsp.*,
@@ -90,7 +91,7 @@ default:
 <link rel="stylesheet" href="<%= wp.getEditorResourceUri() %>dist/addon/hint/show-hint.css">
 <link rel="stylesheet" type="text/css" href="<%= wp.getEditorResourceUri() %>codemirror-ocms.css" title="cssocms">
 
-<script src="<%= wp.getEditorResourceUri() %>js/lang-<%= wp.getEditorLanguage() %>.js"></script>
+<script src="<%= wp.getEditorResourceUri() %>js/lang-<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getEditorLanguage())) %>.js"></script>
 <script src="<%= wp.getEditorResourceUri() %>edit.js"></script>
 <script src="<%= wp.getEditorResourceUri() %>dist/lib/codemirror.js"></script>
 <script src="<%= wp.getEditorResourceUri() %>dist/addon/dialog/dialog.js"></script>
