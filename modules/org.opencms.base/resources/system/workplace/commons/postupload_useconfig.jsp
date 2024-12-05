@@ -1,10 +1,11 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@page import="org.opencms.ade.postupload.*" %><%
 CmsPostUploadDialogActionElement dialog = new CmsPostUploadDialogActionElement(pageContext, request, response);
 dialog.setUsePropertyConfiguration(true);
 %><!DOCTYPE html> 
 <html>
   <head>
-  	<%= dialog.exportAll() %>
+  	<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(dialog.exportAll())) %>
   	<title>Properties</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   </head>
