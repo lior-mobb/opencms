@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.CmsDialog, 
                  org.opencms.workplace.commons.CmsDeletedResources,
                  org.opencms.workplace.commons.Messages,
@@ -37,7 +38,7 @@ default:
 <%= wp.paramsAsHidden() %>
 <input type="hidden" name="<%= CmsDialog.PARAM_FRAMENAME %>" value="">
 <%= wp.buildAjaxResultContainer(wp.key(Messages.GUI_DELETED_RESOURCES_LIST_TITLE_0)) %>
-<%= wp.buildOptions() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.buildOptions())) %>
 <%= wp.dialogContentEnd() %>
 <%= wp.dialogButtons() %>
 </form>
