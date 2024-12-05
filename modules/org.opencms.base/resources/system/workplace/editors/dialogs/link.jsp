@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.main.*, org.opencms.workplace.*, org.opencms.workplace.explorer.*, org.opencms.util.CmsStringUtil" %><%	
 
 	// initialize the workplace class
@@ -297,7 +298,7 @@ function checkContext(linkUrl, add) {
                     <td>&nbsp;</td>
                 </tr>   
                 <tr>
-                    <td style="white-space: nowrap;"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTITLE_0)%>:</td>
+                    <td style="white-space: nowrap;"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTITLE_0)))%>:</td>
                     <td class="maxwidth">
                         <input type="text" name="linktitle"  class="maxwidth" value="" />
                     </td>
