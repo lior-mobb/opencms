@@ -1,9 +1,10 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@page import="org.opencms.ade.upload.CmsUploadActionElement"%><%
   CmsUploadActionElement upload = new CmsUploadActionElement(pageContext, request, response);
 %><!DOCTYPE html>
 <html>
   <head>
-  	<%= upload.exportAll() %>
+  	<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(upload.exportAll())) %>
   	<title><%= upload.getTitle() %></title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   </head>
