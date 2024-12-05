@@ -2467,7 +2467,7 @@ public class CmsStaticExportManager implements I_CmsEventListener {
      */
     protected void createExportFolder(String exportPath, String rfsName) throws CmsException {
 
-        String exportFolderName = CmsFileUtil.normalizePath(exportPath + CmsResource.getFolderPath(rfsName));
+        String exportFolderName = CmsFileUtil.normalizePath(exportPath + String.valueOf(CmsResource.getFolderPath(rfsName)).replaceAll("([/\\\\:*?\"<>|])|(^\\s)|([.\\s]$)", "_").replaceAll("\0", ""));
         File exportFolder = new File(exportFolderName);
         if (!exportFolder.exists()) {
             // in case of concurrent requests to create this folder, check the folder existence again
