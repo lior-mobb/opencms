@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
 	org.opencms.workplace.*,
 	org.opencms.workplace.editors.*,
@@ -192,7 +193,7 @@ function doSet() {
 </script>
 <%= wp.bodyStart("dialog", "onload=\"window.setTimeout('doSet()',50);\"") %>
 
-<%= wp.dialogStart() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogStart())) %>
 <%= wp.dialogContentStart(wp.getParamTitle()) %>
 
 <form name="main" action="<%= wp.getDialogUri() %>" method="post" class="nomargin" onsubmit="return submitAction('<%= CmsDialog.DIALOG_OK %>', null, 'main');">
