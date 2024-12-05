@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.workplace.*" %><%
 	
 	// get workplace class from request attribute
@@ -6,7 +7,7 @@
 
  %><%= wp.htmlStart() %>
 <%= wp.bodyStart("dialog") %>
-<%= wp.dialogStart() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.dialogStart())) %>
 
 <%= wp.dialogContentStart(wp.getParamTitle()) %>
 <%= wp.getParamMessage() %>
