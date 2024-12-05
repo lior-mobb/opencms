@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="
     org.opencms.file.CmsPropertyDefinition,
     org.opencms.util.CmsRequestUtil,
@@ -92,7 +93,7 @@
 </form></td>
 
 <%= wp.getPublishButton() %>
-<%= wp.getPublishQueueButton() %>
+<%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.getPublishQueueButton())) %>
 <%
 if (wp.showSiteSelector()) {
 
