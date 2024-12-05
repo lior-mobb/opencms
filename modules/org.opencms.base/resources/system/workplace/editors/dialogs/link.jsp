@@ -1,3 +1,4 @@
+<%@ page import="org.springframework.web.util.HtmlUtils" %>
 <%@ page import="org.opencms.main.*, org.opencms.workplace.*, org.opencms.workplace.explorer.*, org.opencms.util.CmsStringUtil" %><%	
 
 	// initialize the workplace class
@@ -289,7 +290,7 @@ function checkContext(linkUrl, add) {
                     <td class="maxwidth" style="white-space: nowrap;">
                       <select name="linktarget" id="linktarget" size="1" style="width:150px" onchange="setNameTarget(false);">
                         <option value="_self"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETSELF_0)%></option>
-                        <option value="_blank"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETBLANK_0) %></option>
+                        <option value="_blank"><%= HtmlUtils.htmlEscape(HtmlUtils.htmlUnescape(wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETBLANK_0))) %></option>
                         <option value="_top"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETTOP_0)%></option>
                         <option value="named"><%= wp.key(org.opencms.workplace.editors.Messages.GUI_INPUT_LINKTARGETNAMED_0)%></option>
                       </select>
